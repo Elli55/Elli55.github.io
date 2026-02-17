@@ -142,8 +142,6 @@ nav a{
 }
 
 
-
-
 .ul-li-title {
 	font-weight: bold;
 	font-size: 1.4rem;
@@ -185,6 +183,10 @@ nav a{
 	baground-color: rgba(255,255,255,0.05);
 }
 
+intro-center-foto{
+	width: 70%;
+	max-width:800;
+}
 
 
 .intro-caption{
