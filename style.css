@@ -51,6 +51,13 @@ a {
 }
 
 
+.code-text{
+	font-family: Consolas, Monaco, 'Courier New', monospace;
+	font-size: 1.4rem;
+	paddin: 0 0 0 5rem;
+	
+}
+
 .button {
 	width: 120px;
 	height: 40px;

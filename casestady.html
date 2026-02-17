@@ -560,7 +560,7 @@
 
 
 					<div class="content" id="cs3">
-						<h3 class="titles"> Method and Implementation: Turnover Dashboard (Power BI)</h3>
+						<h3 class="titles"> Method and Implementation Turnover Dashboard (Power BI)</h3>
 
 						<p class="description-text">The practical implementation of the first dashboard (Overview) aimed 							to make employee turnover visible while simultaneously integrating agile elements. The 								intention was to demonstrate how a functional HR dashboard can be developed with 								manageable effort. The process consisted of three parts: data preparation (ETL) in 								Python, the construction of a clear data model in Power BI, and the visualization of the 							most important key figures. In addition, I incorporated agile functions: a What-If 								parameter (“Target Attrition %”), the metric Gap-toTarget, a simple Risk Score, and a 								status card with warning indicators. As a result, the dashboard was iteratively extended 							and corresponds to the first sprint.						
 						</p>
@@ -717,7 +717,7 @@
 						<p class="description-text">The key figures combine descriptive transparency with simple prescriptive 							signals. Three central measures are presented as examples.Time-to-Hire (average in days) and Gap-to-							Target.  First, the average duration between “Applied” and “Hired” is calculated. Afterwards, it is 							compared with a target value set via a What-If parameter.
 						</p>
 
-						<p class="description-text"> TTH := <br>
+						<p class="code-text"> TTH := <br>
 										VAR AppliedDate =<br>
 										CALCULATE(<br>
 										MIN(ats_pipeline_events[stage_start_date]),<br>
@@ -742,7 +742,7 @@
 						<p class="description-text">WIP Limit and Over-Limit.  Kanban actively controls the number of parallel 								cases. WIP counts candidates in the active stages. With a second What-If parameter WIP_Limit, the 								limit is set; Over-Limit immediately signals bottlenecks.
 						</p>
 
-						<p class="description-text">WIP :=<br>
+						<p class="code-text">WIP :=<br>
 										CALCULATE(<br>
    										DISTINCTCOUNT(ats_pipeline_events[candidate_id]),<br>
     									ats_pipeline_events[stage] IN {"Applied","Screen","Interview","Offer"})<br>
@@ -755,7 +755,7 @@
 						<p class="description-text"> Throughput per Week (Flow-out).  For Hires and Rejections, the report counts 							cases by end date. For this purpose, the inactive date relationship is deliberately activated per 								measure.
 						</p>
 
-						<p class="description-text"> Hires_Woche :=<br>
+						<p class="code-text"> Hires_Woche :=<br>
 										CALCULATE(<br>
 										DISTINCTCOUNT(ats_pipeline_events[candidate_id]),<br>												ats_pipeline_events[stage] = "Hired",<br>													USERELATIONSHIP(Dim_Date[Date], ats_pipeline_events[stage_end_date]))<br><br>
 										Rejected_Woche :=<br>
