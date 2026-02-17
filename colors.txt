@@ -1,0 +1,18 @@
+main color - #284700
+
+link Color - #F5FBFF
+
+header font Color - #F0C493
+
+main font Color - #FFFAE5
+
+notifcations Color - 8C271E
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,474 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+header {
+	font-size: 1.5rem;
+	background-color:#284700;
+	color:#F0C493; 
+}
+
+
+body {
+	background-color:#284700;
+	color:#FFFAE5;
+	min-height: 100vh;
+	font-family: Verdana, sans-serif; 
+	margin: 0;
+    	padding: 0;
+}
+
+
+
+a {
+	color:#F5FBFF;
+	text-decoration: none;
+}
+
+
+.titles{
+	font-family:  'Trebuchet MS', serif;
+	color: #F0C493;
+	font-size: 2rem;
+	margin: 2rem auto;
+}
+
+.subtitle{
+	font-family: 'Trebuchet MS', serif;
+	color:#F0C493;
+	font-size: 1.5rem;
+	margin: 3rem 0 1rem 2rem	;			
+}
+
+.description-text{
+	font-size:1.2rem;
+	text-indent: 1.5em;
+	margin: 0.5rem 0;
+	font-family: Verdana, sans-serif; 
+	line-height:2rem;
+}
+
+
+.button {
+	width: 120px;
+	height: 40px;
+	margin: 1.5rem;
+
+	display: inline-flex;
+	align-self: center;
+	align-items: center;
+	justify-content: center;
+
+	background-color: #284700;
+	color: #FFFAE5;
+
+	border: 2px solid #F0C493;
+	border-radius: 14px;
+	box-shadow:  0 4px 10px rgba(0, 0, 0, 0.5);
+
+	font-family:  'Trebuchet MS', serif;
+	font: inherit;
+	cursor: pointer;
+
+	appearance: none;
+	-webkit-appearance: none;
+
+	transition: all 0.25s ease;
+}
+
+.button:hover {
+	background-color: #F0C493;
+	color: #284700;
+}
+
+.myname{
+	color:#FFFAE5;
+	text-decoration: none;
+	font-family:'Trebuchet MS', serif;
+	margin:0.5rem 0 0 0;
+}
+
+.jobtitle{
+	font-family: Verdana, sans-serif; 
+	padding: 1rem 0 0 0;	
+}
+
+nav ul{
+	list-style: none;
+	padding: 0.5rem;
+
+}
+
+nav ul li {
+	display: inline-block;
+	margin-right: 2rem;
+	font-family:'Trebuchet MS', serif;
+
+}
+
+nav a{
+	text-decoration: none;
+
+}
+.right{
+	text-align: right;	
+}
+
+
+.left {
+	text-align: left;
+}
+
+.center {
+	text-align: center;
+	align-items: center;
+}
+
+.ul-with-title{
+	padding:2rem 20rem 1.5rem 5rem;
+	font-size:1.2rem;
+	margin: 0.5rem 0;
+	font-family: Verdana, sans-serif; 
+	line-height:2rem;
+}
+
+
+
+
+.ul-li-title {
+	font-weight: bold;
+	font-size: 1.4rem;
+	margin: 0.8rem 0;
+	font-family: Verdana, sans-serif; 
+	line-height: 2rem;
+}
+
+.ul-with-title li::marker {
+	font-weight: bold;
+}
+
+
+.ul-with-title li{
+	padding: 0.3rem 0;
+}
+
+
+
+
+#selfintro{
+	display: grid;
+	grid-template-columns: 1fr 2fr 1fr;
+	align-items: center;
+	margin: 2rem auto;
+	max-width: 1200px;
+}
+
+
+.intro{
+	text-align: center;
+}
+
+
+.intro img{
+	width: 250px;
+	border: 1px dashed #F0C493;
+	border-radius: 25px;
+	baground-color: rgba(255,255,255,0.05);
+}
+
+
+
+.intro-caption{
+	margin-top:0.5rem;
+	font-size: 1.2rem;
+	opacity: 0.8;
+}
+
+
+.intro-title h1 {
+	font-size: 5rem;
+	letter-spacing: 3px;
+	font-family:  'Comic Sans MS', cursive;	
+}
+
+
+.intro-text{
+	font-size:1.2rem;
+	margin: 1rem;
+	line-height: 1.5;
+	color: #F0C493;
+	font-family:  'Comic Sans MS', cursive;
+
+}
+
+
+
+#what-now{
+	max-width:800px;
+	margin: 2rem auto;
+	padding:1rem;
+	align-item: center;	
+}
+
+
+#what-now fieldset{
+	background-color:rgb(255, 255, 255, 0.05);
+	border: 2px solid #F0C493;
+	border-radius: 12px;
+	padding: 0.5rem;
+	
+}
+
+#what-now legend{
+	color:#F0C493;
+	font-size:1.1rem;
+	padding: 0 0.5rem;
+}
+
+#what-now p{
+	padding:0.3rem;
+	line-height:1.4;	
+}
+
+
+#what-now a{
+	text-decoration: none;
+	border-bottom: 2px dashed transparent;
+	transition: border-color 0.3s;
+}
+
+#what-now a:hover{
+	border-bottom-color:  #9dbf4f;
+}
+
+
+
+#education-field{
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	padding:5rem 0;
+	margin: 0 5rem;
+}
+
+#education-field .pdf-viewer{
+	max-width: 800px;
+	margin-left: 2rem;
+	padding: 2rem;
+	background: rgb(255, 255, 255, 0.05);
+	border-radius: 12px;
+	box-shadow: 0 12px 35px rgb(0, 0, 0, 1);
+}
+
+
+#education-field .pdf-viewer p{ 
+	margin: 1.5rem;
+}
+
+
+
+#education-field .pdf-canvas-wrapper {
+	display: flex;
+	justify-content: center;
+	background: #fff;
+	padding: 2px;
+	border-radius: 10px;
+	overflow: auto;
+}
+
+.name-stady{
+	font-size:  1.8rem;
+	margin-bottom: 2rem;
+	margin-top: 0.5rem;
+	
+}
+
+
+.title-of-stady{
+	font-size: 1.1rem;
+	margin-bottom: 0.5rem;
+	
+}
+
+
+.call-to-action-right{
+	display: grid;
+	grid-template-columns: 3fr 2fr;
+	margin-top: 2rem;
+	
+}
+
+.call-to-action-left{
+	display: grid;
+	grid-template-columns: 2fr 3fr;
+	margin-top: 2rem;
+	
+}
+
+
+.img-cta{
+	width:100%;
+	max-witdh: 1200px;
+
+}
+
+.content-cta-right{
+	margin-left: 2rem;
+}
+
+.content-cta-left{
+	margin-right: 2rem;
+}
+
+
+/* --About-- */
+
+
+
+#whoami{
+	align-items: center;
+	margin: 0 5rem;
+}
+
+
+
+
+.foto-for-about{
+	width:100%;
+	max-witdh: 2200px;
+
+}
+
+
+.math{
+	display: grid;
+	grid-template-columns: 3fr 1fr;
+	margin: 4rem 0 0 0;
+}
+
+
+.mixology{
+	display: grid;
+	grid-template-columns: 1fr  3fr;
+}
+
+.rock{
+	display: grid;
+	grid-template-columns: 3fr 1fr;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* --Projects-- */
+
+#board {
+	display: grid;
+	grid-template-columns: 300px 1fr;
+	gap: 2rem; 
+	align-items: start;
+	margin: 2rem 0 2rem 2rem;  
+}
+
+
+.name-of-choised-content{
+	padding-right: 1rem;
+	border-right:2px solid #FFFAE5;
+		
+
+}
+
+
+
+.chois-template{
+	display: block;
+	font-size: 1.4rem;
+	margin: 0.7rem 0.7rem 0 0;
+}
+
+.head-of-choises{
+	font-size: 1.7rem;
+	color: 	#FFFAE5;
+	margin: 2rem 1.4rem 0 0; 
+}
+
+
+.content {
+	display: none;
+	margin: 0 2rem 2rem 0;
+	
+}
+
+.content.active {
+	display: block;
+	
+}
+
+.choised-content-grid-right{
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+}
+
+
+.choised-content-grid-left{
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+}
+
+.foto-for-grid-contents{
+	width:100%;
+	max-width: 650px;
+}
+
+
+.foto-center-grid{
+	display: flex;
+	justify-content: center; 
+	align-items: center;      
+	padding: 2rem 0 2rem 0;
+
+}
+
+
+
+.foto-center{
+	width: 60%;
+	max-width: 1800px;
+	
+}
+
+.foto-grid-two{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	margin:2rem 0 2rem 0;
+
+}
+
+.foto-two{
+	width: 100%;
+	max-with: 1800px;
+}
+
+
+
+
+/* --Csase Stadys-- */
+
+.figur-for-fotos-center{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin:6rem 0 1rem 0;
+}
+
+
+
+
