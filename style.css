@@ -13,6 +13,8 @@ header {
 #head {
 	display: grid;
 	grid-template-columns: 1fr 3fr;
+	padding: 0 10rem;
+	margin: 0.5rem 0 4rem 0;
 	
 	
 }
@@ -23,8 +25,13 @@ body {
 	color:#000;
 	min-height: 100vh;
 	font-family: Verdana, sans-serif; 
-	margin: 0 4rem;
+	margin: 0;
     	padding: 0;
+}
+
+.container { 
+	padding: 0 10rem;
+	margin: 7rem 0;
 }
 
 .card {
@@ -43,8 +50,9 @@ a {
 
 .titles{
 	font-family:  'Trebuchet MS', serif;
-	color: #F0C493;
+	color: #0A9417;
 	font-size: 2rem;
+	margin: 0 0 2rem 0;
 	
 }
 
@@ -118,6 +126,7 @@ a {
 	display: inline-block;
 	margin-right: 2rem;
 	font-family:'Trebuchet MS', serif;
+	align-items: center;
 
 }
 
@@ -186,9 +195,7 @@ nav a{
 
 .intro img{
 	width: 250px;
-	border: 1px dashed #F0C493;
-	border-radius: 25px;
-	baground-color: rgba(255,255,255,0.05);
+
 }
 
 intro-center-foto{
@@ -222,35 +229,29 @@ intro-center-foto{
 
 
 
-#what-now{
-	max-width:900px;
-	padding:1rem;
-	align-item: center;	
-}
-
 
 
 
 #contact{
 	display: grid;
-	grid-template-colums: 1fr 3fr;
+	grid-template-columns: 1fr 5fr 1fr;
 }
 
 .contact-me {
 	
-	padding: 0;
-	margin: 2rem0 ;
+	
 	gap: 7rem;
 	display: flex;        
 	
 }
 
-.contact-item {
-	display: flex;        
+
+.contact-links{
 	align-items: center;
-	gap: 0.8rem;
-	font-size:1.2rem;
 }
+
+
+
 
 .icon {
 	width: 24px;
@@ -260,55 +261,42 @@ intro-center-foto{
 
 
 
+#educationbackground {
+	margin: 4rem 0;
+	background-color: #CFFFC4;
+	padding: 4rem 10rem;
+
+}
 
 
 
-#education-field{
+#last-academic-work {
 	display: grid;
 	grid-template-columns: 2fr 1fr;
-	padding:5rem 0;
-	margin: 0 5rem;
+	
+	
+	gap: 10rem;
 	
 }
 
-#education-field .pdf-viewer{
-	max-width: 800px;
-	margin-left: 2rem;
-	padding: 2rem;
-	background: rgb(255, 255, 255, 0.05);
-	border-radius: 12px;
-	box-shadow: 0 12px 35px rgb(0, 0, 0, 1);
-}
-
-
-#education-field .pdf-viewer p{ 
-	margin: 1.5rem;
-}
 
 
 
-#education-field .pdf-canvas-wrapper {
+
+
+.pdf-canvas-wrapper {
 	display: flex;
 	justify-content: center;
 	background: #fff;
 	padding: 2px;
 	border-radius: 10px;
 	overflow: auto;
-}
-
-.name-stady{
-	font-size:  1.8rem;
-	margin-bottom: 2rem;
-	margin-top: 0.5rem;
-	
+	box-shadow: 0 12px 35px rgb(86, 153, 14, 1);
 }
 
 
-.title-of-stady{
-	font-size: 1.1rem;
-	margin-bottom: 0.5rem;
-	
-}
+
+
 
 
 .call-to-action-right{
@@ -341,13 +329,30 @@ intro-center-foto{
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* --About-- */
+
+
 
 
 
 #whoami{
 	align-items: center;
-	margin: 0 5rem;
+			
 }
 
 
@@ -355,27 +360,13 @@ intro-center-foto{
 
 .foto-for-about{
 	width:100%;
-	max-witdh: 2200px;
+	
+	max-witdh: 1200px;
 
 }
 
 
-.math{
-	display: grid;
-	grid-template-columns: 3fr 1fr;
-	margin: 4rem 0 0 0;
-}
 
-
-.mixology{
-	display: grid;
-	grid-template-columns: 1fr  3fr;
-}
-
-.rock{
-	display: grid;
-	grid-template-columns: 3fr 1fr;
-}
 
 
 
@@ -394,7 +385,7 @@ intro-center-foto{
 	grid-template-columns: 300px 1fr;
 	gap: 2rem; 
 	align-items: start;
-	margin: 2rem 0 2rem 2rem;  
+	 
 }
 
 

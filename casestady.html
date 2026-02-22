@@ -11,29 +11,26 @@
 
 <body>
 	<header>
-		<hr>
-		<article id="titleofme">
-			<section class="myname">
-				<h1><a class="myname" href="index.html">Done at Elli</a></h1>
-			</section>
-			<section class="jobtitle">
-				<h4> Business Analyst</h4>
+		<article id="head" >
+			<section class="description-text">
+				<h1>Alrahman Elli Verdiyev</h1>
 			</section>
 			<nav class="right">
-				<ul>
+				<ul class="line_ul">
 					<li><a href="index.html">Home</a></li>
-					<li><a href="about.html">About</a></li>
+					<li><a href="about.html">About</a></li>	
 					<li><a href="casestady.html">Case Stadys</a></li>
 					<li><a href="projects.html">Projects/Programs</a></li>
+					<li><a href="projects.html">Contact</a></li>
 				</ul>
 			</nav>
 		</article>
-		<hr>
+					
 	</header>
 
 
 	<main>
-		<article id="board">
+		<article id="board" class="container">
 				<section class="name-of-choised-content">
 					<h3 class="titles">Product Managment</h3>
 					<a href="#" class="chois-template" onclick="show('cs4'); return false;">Wiskey Product</a>
@@ -606,10 +603,10 @@
 						<h5 class="subtitle">Data Model in Power BI</h5>
 						
 
-						<p class="description-text">After importing the cleaned CSV file into Power BI, I built a star schema. The 							central fact table (Fact_HR) contains all employee data. In addition, I created dimension tables, 								for example Dim_Department, Dim_JobRole, Dim_AgeBand, Dim_TenureBand, and Dim_IncomeBand.
+						<p class="description-text">After importing the cleaned CSV file into Power BI, I built a star 								schema. The central fact table (Fact_HR) contains all employee data. In addition, I 								created dimension tables, for example Dim_Department, Dim_JobRole, Dim_AgeBand, 								Dim_TenureBand, and Dim_IncomeBand.
 						</p>
 
-						<p class="description-text">The relationships were created as (1: n). For the age and tenure bands, I 								inserted helper columns for sorting, whereby the order had to be adjusted manually in some 								visualizations. This approach makes the model clear and at the same time flexible. There is also a 								small table _Measures. It is deliberately created without relationships and serves only as a 								container for all DAX measures. The placeholder column is hidden; only the measures are visible in 							the report. This keeps the model clear and still flexible.
+						<p class="description-text">The relationships were created as (1: n). For the age and tenure 								bands, I inserted helper columns for sorting, whereby the order had to be adjusted 								manually in some visualizations. This approach makes the model clear and at the same time 							flexible. There is also a small table _Measures. It is deliberately created without 								relationships and serves only as a container for all DAX measures. The placeholder column 							is hidden; only the measures are visible in the report. This keeps the model clear and 								still flexible.
 						</p>
 			
 						<figure class="figur-for-fotos-center">
@@ -621,7 +618,7 @@
 						<h5 class="subtitle"> Key Figures (DAX)</h5>
 
 						<div class="ul-with-title">
-							<p class="ul-li-title"> For the analysis, I calculated central key figures using DAX. These 									include:</p>
+							<p class="ul-li-title"> For the analysis, I calculated central key figures using DAX. 									These include:</p>
 
 							<ul>
 								<li>Headcount = Total number of employees</li>
@@ -636,7 +633,7 @@
 							</ul>
 						</div>
 
-						<p class="description-text">These key figures enable both an overall overview and detailed analyses by 								departments, roles, or employee groups.
+						<p class="description-text">These key figures enable both an overall overview and detailed 								analyses by departments, roles, or employee groups.
 						</p>
 
 
@@ -644,8 +641,7 @@
 
 						<p class="description-text"> Das Dashboard besteht aus drei Seiten.</p>
 				
-						<p class="description-text">Overview: In addition to the central key figures (Headcount, Attrition Rate,
-							Overtime Rate, Avg Income), agile extensions were integrated. These include a What-If parameter for 							the attrition target, the key figure Gap-to-Target, a simple Risk Score, and a status card. In this 								way, turnover is not only described but also compared with target values and linked to risk 								indicators.
+						<p class="description-text">Overview: In addition to the central key figures (Headcount, 								Attrition Rate,	Overtime Rate, Avg Income), agile extensions were integrated. These 								include a What-If parameter for the attrition target, the key figure Gap-to-Target, a 								simple Risk Score, and a status card. In this way, turnover is not only described but 								also compared with target values and linked to risk indicators.
 						</p>
 
 						<figure class="figur-for-fotos-center">
@@ -654,7 +650,7 @@
 						</figure>
 	
 
-						<p class="description-text">Deep-Dive (Decomposition Tree): Here, the attrition rate could be broken down 							step by step according to various influencing factors (e.g., department, overtime, income, tenure).  							Slicers were deliberately reduced in order to keep the analysis freely exploratory.  In addition, 							two small KPIs (Attrition Rate and Gap-to-Target) remained visible to that the target values were 							not lost. This clearly reflects the agile idea of interactive exploration.
+						<p class="description-text">Deep-Dive (Decomposition Tree): Here, the attrition rate could be 								broken down step by step according to various influencing factors (e.g., department, 								overtime, income, tenure). Slicers were deliberately reduced in order to keep the 								analysis freely exploratory.  In addition, two small KPIs (Attrition Rate and Gap-to-								Target) remained visible to that the target values were not lost. This clearly reflects 							the agile idea of interactive exploration.
 						</P>
 
 						<figure class="figur-for-fotos-center">
@@ -676,7 +672,7 @@
 						<p class="description-text">The dashboard shows typical patterns of employee turnover that are 								also described in the literature. Younger employees (e.g., in the age band 18–25 years) 							and individuals with short organizational tenure (≤ 1 year) have a significantly higher 								exit rate. The risk likewise increases when overtime is regularly performed. Job roles in 							the Sales area are particularly affected.
 						</p>
 
-						<p class="description-text">What was new here was that the results were not only visible descriptively 								but were also connected with agile elements. With the What-If parameter, a target value for turnover 							could be set, and the Gap-to-Target metric immediately showed the deviation between actual and 								target. The simple Risk Score combined factors such as overtime, tenure, and income, thereby making 							risk segments clearly recognizable. In this way, a purely descriptive analysis became an agile 								instrument that not only identifies patterns but also opens up scope for decision-making .
+						<p class="description-text">What was new here was that the results were not only visible 								descriptively but were also connected with agile elements. With the What-If parameter, a 							target value for turnover could be set, and the Gap-to-Target metric immediately showed 							the deviation between actual and target. The simple Risk Score combined factors such as 							overtime, tenure, and income, thereby making risk segments clearly recognizable. In this 							way, a purely descriptive analysis became an agile instrument that not only identifies 								patterns but also opens up scope for decision-making .
 						</p>						
 
 
@@ -688,18 +684,18 @@
 						
 						<h3 class="titles">Recruiting-Kanban & Experiment Dashboard (ATS Pipeline, Power BI)</h3>
 
-						<p class="description-text">The dashboard represents the recruiting process in Kanban logic. Important 							key figures such as Work-in-Process (WIP), Cycle Time, Throughput, Conversion, and Time-to-Hire 								change daily or weekly. Therefore, this case is well suited to make agile control visible. The 								report layout follows the ideas of IBCS/SUCCESS: a clear statement in the title, uniform colors, and 							a reduced design so that HR, IT, and hiring managers use a common data language
+						<p class="description-text">The dashboard represents the recruiting process in Kanban logic. 								Important key figures such as Work-in-Process (WIP), Cycle Time, Throughput, Conversion, 							and Time-to-Hire change daily or weekly. Therefore, this case is well suited to make 								agile control visible. The report layout follows the ideas of IBCS/SUCCESS: a clear 								statement in the title, uniform colors, and a reduced design so that HR, IT, and hiring 							managers use a common data language
 						</p>
 
 						<h5 class="subtitle">Data Basis and ETL</h5>
 
-						<p class="description-text"> The solution uses three synthetic CSV files. ats_pipeline_events contains 							the event log per candidate and stage (Applied, Screen, Interview, Offer, Hired/Rejected) with 								stage_start_date and stage_end_date as well as contextual fields such as Department, Role, 								Seniority, Location, Source, Recruiter, and Variation (A/B). ats_candidates provides master data on 							the candidate (e.g., applied_date, recruiter, 	variation). ats_requisitions describes the vacancy 								(req_id, department, role, location, seniority). In Power BI, the files are imported, data types are 								set (especially the date fields), empty strings are treated as 	null, and identifiers are 									standardized. This event log is the appropriate foundation for Kanban because start and end 								timestamps per stage later directly enable calculations for CFD, Cycle Time, Aging, and 									Throughput.
+						<p class="description-text"> The solution uses three synthetic CSV files. ats_pipeline_events 								contains the event log per candidate and stage (Applied, Screen, Interview, Offer, 								Hired/Rejected) with stage_start_date and stage_end_date as well as contextual fields 								such as Department, Role, Seniority, Location, Source, Recruiter, and Variation (A/B). 								ats_candidates provides master data on the candidate (e.g., applied_date, recruiter, 								variation). ats_requisitions describes the vacancy (req_id, department, role, location, 							seniority). In Power BI, the files are imported, data types are set (especially the date 							fields), empty strings are treated as null, and identifiers are standardized. This event 							log is the appropriate foundation for Kanban because start and end timestamps per stage 							later directly enable calculations for CFD, Cycle Time, Aging, and Throughput.
 						</p>
 
 					
 						<h5 class="subtitle">Data Model (Star Schema)</h5>
 
-						<p class="description-text">The model follows a star schema. The fact table ats_pipeline_events lies at 								the center. The dimensions ats_candidates, ats_requisitions, Dim_Date, and Dim_Stage provide the 								axes of analysis. Between Dim_Date[Date] and events[stage_start_date] there is an active 1:n 								relationship for “Flow-in.” Additionally, an inactive relationship from Dim_Date[Date] to 								events[stage_end_date] is stored. This  inactive connection is deliberately activated in measures 							using USERELATIONSHIP() in order to correctly control “Flow-out” (e.g., hires per week). Attributes 							that appear twice in the fact table (e.g., department) are hidden in the report; for analyses, the 								columns from the dimensions are used. The model is lean and can easily be extended in sprints.
+						<p class="description-text">The model follows a star schema. The fact table ats_pipeline_events 							lies at the center. The dimensions ats_candidates, ats_requisitions, Dim_Date, and 								Dim_Stage provide the axes of analysis. Between Dim_Date[Date] and 										events[stage_start_date] there is an active 1:n relationship for “Flow-in.” Additionally, 							an inactive relationship from Dim_Date[Date] to events[stage_end_date] is stored. This  							inactive connection is deliberately activated in measures using USERELATIONSHIP() in 								order to correctly control “Flow-out” (e.g., hires per week). Attributes that appear 								twice in the fact table (e.g., department) are hidden in the report; for analyses, the 								columns from the dimensions are used. The model is lean and can easily be extended in 								sprints.
 						</p>
 
 						<figure class="figur-for-fotos-center">
@@ -714,19 +710,21 @@
 
 						<h5 class="subtitle">Key Figures and Analytical Logic (DAX)</h5>
 
-						<p class="description-text">The key figures combine descriptive transparency with simple prescriptive 							signals. Three central measures are presented as examples.Time-to-Hire (average in days) and Gap-to-							Target.  First, the average duration between “Applied” and “Hired” is calculated. Afterwards, it is 							compared with a target value set via a What-If parameter.
+						<p class="description-text">The key figures combine descriptive transparency with simple 								prescriptive signals. Three central measures are presented as examples.Time-to-Hire 								(average in days) and Gap-to-Target.  First, the average duration between “Applied” and 							“Hired” is calculated. Afterwards, it is compared with a target value set via a What-If 							parameter.
 						</p>
 
 						<p class="code-text"> TTH := <br>
 										VAR AppliedDate =<br>
 										CALCULATE(<br>
 										MIN(ats_pipeline_events[stage_start_date]),<br>
-										ALLEXCEPT(ats_pipeline_events, ats_pipeline_events[candidate_id]),<br>
+										ALLEXCEPT(ats_pipeline_events, 															ats_pipeline_events[candidate_id]),<br>
+
 										ats_pipeline_events[stage] = "Applied")<br>
 										VAR HiredDate :=<br>
 										CALCULATE(<br>
 										MAX(ats_pipeline_events[stage_end_date]),<br>
-										ALLEXCEPT(ats_pipeline_events, ats_pipeline_events[candidate_id]),<br>
+										ALLEXCEPT(ats_pipeline_events, 															ats_pipeline_events[candidate_id]),<br>
+
 										ats_pipeline_events[stage] = "Hired")<br>
 										RETURN<br>
 										AVERAGEX(<br>
@@ -735,41 +733,41 @@
 										)<br>
 						</p>
 
-						<p class="description-text">The target value is created as a What-If parameter TTH_Target; the gap results 							as Gap_TTH = [TTH] − [TTH_Target Value]. A positive gap indicates an SLA deviation and provides a 								clear impulse for action.
+						<p class="description-text">The target value is created as a What-If parameter TTH_Target; the 								gap results as Gap_TTH = [TTH] − [TTH_Target Value]. A positive gap indicates an SLA 								deviation and provides a clear impulse for action.
 						</p>
 
 			
-						<p class="description-text">WIP Limit and Over-Limit.  Kanban actively controls the number of parallel 								cases. WIP counts candidates in the active stages. With a second What-If parameter WIP_Limit, the 								limit is set; Over-Limit immediately signals bottlenecks.
+						<p class="description-text">WIP Limit and Over-Limit.  Kanban actively controls the number of 								parallel cases. WIP counts candidates in the active stages. With a second What-If 								parameter WIP_Limit, the limit is set; Over-Limit immediately signals bottlenecks.
 						</p>
 
 						<p class="code-text">WIP :=<br>
 										CALCULATE(<br>
    										DISTINCTCOUNT(ats_pipeline_events[candidate_id]),<br>
-    									ats_pipeline_events[stage] IN {"Applied","Screen","Interview","Offer"})<br>
+    								ats_pipeline_events[stage] IN {"Applied","Screen","Interview","Offer"})<br>
 										WIP_Over_Limit :=<br>
 										VAR Over = [WIP] - [WIP_Limit Wert]<br>
 										RETURN IF(Over > 0, Over, 0)<br>
-							If Over-Limit > 0, overload is present. In practice, this leads to a measure, for example lowering the 							limit or increasing capacity.
+							If Over-Limit > 0, overload is present. In practice, this leads to a measure, for example 							lowering the limit or increasing capacity.
 						</p>
 
-						<p class="description-text"> Throughput per Week (Flow-out).  For Hires and Rejections, the report counts 							cases by end date. For this purpose, the inactive date relationship is deliberately activated per 								measure.
+						<p class="description-text"> Throughput per Week (Flow-out).  For Hires and Rejections, the 								report counts cases by end date. For this purpose, the inactive date relationship is 								deliberately activated per measure.
 						</p>
 
 						<p class="code-text"> Hires_Woche :=<br>
 										CALCULATE(<br>
-										DISTINCTCOUNT(ats_pipeline_events[candidate_id]),<br>												ats_pipeline_events[stage] = "Hired",<br>													USERELATIONSHIP(Dim_Date[Date], ats_pipeline_events[stage_end_date]))<br><br>
+										DISTINCTCOUNT(ats_pipeline_events[candidate_id]),<br>												ats_pipeline_events[stage] = "Hired",<br>													USERELATIONSHIP(Dim_Date[Date], 														ats_pipeline_events[stage_end_date]))<br><br>
 										Rejected_Woche :=<br>
 										CALCULATE(<br>
 										DISTINCTCOUNT(ats_pipeline_events[candidate_id]),<br>												ats_pipeline_events[stage] = "Rejected",<br>												USERELATIONSHIP(Dim_Date[Date], ats_pipeline_events[stage_end_date]))<br>
 						</p>
 
-						<p class="description-text"> The time series makes the outflow visible and shows whether the process 								delivers steadily or fluctuates. Together with the Screen-Interview conversion and the Cycle Time 							per stage, clear indications of bottlenecks emerge.
+						<p class="description-text"> The time series makes the outflow visible and shows whether the 								process delivers steadily or fluctuates. Together with the Screen-Interview conversion 								and the Cycle Time per stage, clear indications of bottlenecks emerge.
 						</p>
 
 					
 						<h5 class="subtitle">Report Design and Visualization</h5>
 
-						<p class="description-text"> The first report page provides a compact overview: five KPI cards 									(Candidates, Hires, WIP, TTH, Gap_TTH) show status and target achievement. A gauge compares WIP with 								the limit and marks overload. The Cumulative Flow Diagram (stacked area chart) represents the flow 							across months; in-process stages are shown in shades of blue, Hired in green, Rejected in red. A SAY 								title names the core message, for example “TTH above target due to backlog in Screen (Engineering).”
+						<p class="description-text"> The first report page provides a compact overview: five KPI cards 									(Candidates, Hires, WIP, TTH, Gap_TTH) show status and target achievement. A 									gauge compares WIP with the limit and marks overload. The Cumulative Flow Diagram 								(stacked area chart) represents the flow across months; in-process stages are 									shown in shades of blue, Hired in green, Rejected in red. A SAY title names the 								core message, for example “TTH above target due to backlog in Screen 										(Engineering).”
 						</p>
 
 						<figure class="figur-for-fotos-center">
