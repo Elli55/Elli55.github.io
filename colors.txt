@@ -6,7 +6,7 @@ header font Color - #F0C493
 
 main font Color - #FFFAE5
 
-notifcations Color - 8C271E
+notifcations Color - #8C271E
 
 
 

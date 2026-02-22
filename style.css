@@ -6,25 +6,38 @@
 
 header {
 	font-size: 1.5rem;
-	background-color:#284700;
-	color:#F0C493; 
+	background-color:#fff;
+	color:#000; 
+}
+
+#head {
+	display: grid;
+	grid-template-columns: 1fr 3fr;
+	
+	
 }
 
 
 body {
-	background-color:#284700;
-	color:#FFFAE5;
+	background-color:#fff;
+	color:#000;
 	min-height: 100vh;
 	font-family: Verdana, sans-serif; 
-	margin: 0;
+	margin: 0 4rem;
     	padding: 0;
 }
 
-
+.card {
+	background-color: #8C271E;
+	border-radius: 12px;
+	padding: 2rem;
+	box-shadow: 0 10px 25px rgba(f, f, f, 0.4);
+	max-width: 600px;
+	
+}
 
 a {
-	color:#F5FBFF;
-	text-decoration: none;
+	color:#000;
 }
 
 
@@ -32,19 +45,18 @@ a {
 	font-family:  'Trebuchet MS', serif;
 	color: #F0C493;
 	font-size: 2rem;
-	margin: 2rem auto;
+	
 }
 
 .subtitle{
 	font-family: 'Trebuchet MS', serif;
-	color:#F0C493;
+	color:#0A9417;
 	font-size: 1.5rem;
-	margin: 3rem 0 1rem 2rem	;			
+	margin: 3rem 0 1rem 0;			
 }
 
 .description-text{
 	font-size:1.2rem;
-	text-indent: 1.5em;
 	margin: 0.5rem 0;
 	font-family: Verdana, sans-serif; 
 	line-height:2rem;
@@ -90,25 +102,19 @@ a {
 	color: #284700;
 }
 
-.myname{
-	color:#FFFAE5;
-	text-decoration: none;
-	font-family:'Trebuchet MS', serif;
-	margin:0.5rem 0 0 0;
-}
 
 .jobtitle{
 	font-family: Verdana, sans-serif; 
 	padding: 1rem 0 0 0;	
 }
 
-nav ul{
+.line_ul{
 	list-style: none;
 	padding: 0.5rem;
 
 }
 
-nav ul li {
+.line_ul li {
 	display: inline-block;
 	margin-right: 2rem;
 	font-family:'Trebuchet MS', serif;
@@ -117,6 +123,8 @@ nav ul li {
 
 nav a{
 	text-decoration: none;
+	color: #000;
+	
 
 }
 .right{
@@ -215,55 +223,26 @@ intro-center-foto{
 
 
 #what-now{
-	max-width:800px;
-	margin: 2rem auto;
+	max-width:900px;
 	padding:1rem;
 	align-item: center;	
 }
 
 
-#what-now fieldset{
-	background-color:rgb(255, 255, 255, 0.05);
-	border: 2px solid #F0C493;
-	border-radius: 12px;
-	padding: 0.5rem;
-	
-}
 
-#what-now legend{
-	color:#F0C493;
-	font-size:1.1rem;
-	padding: 0 0.5rem;
-}
-
-#what-now p{
-	padding:0.3rem;
-	line-height:1.4;	
-}
-
-
-#what-now a{
-	text-decoration: none;
-	border-bottom: 2px dashed transparent;
-	transition: border-color 0.3s;
-}
-
-#what-now a:hover{
-	border-bottom-color:  #9dbf4f;
-}
 
 #contact{
-	margin: 7rem 0 4rem 0;
+	display: grid;
+	grid-template-colums: 1fr 3fr;
 }
 
 .contact-me {
-	list-style: none;
+	
 	padding: 0;
-	margin: 2rem 0;
+	margin: 2rem0 ;
 	gap: 7rem;
 	display: flex;        
-	justify-content: center; 
-	align-items: center;
+	
 }
 
 .contact-item {
