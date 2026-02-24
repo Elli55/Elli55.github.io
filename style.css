@@ -45,14 +45,7 @@ body {
 	margin: 7rem 0;
 }
 
-.card {
-	background-color: #8C271E;
-	border-radius: 12px;
-	padding: 2rem;
-	box-shadow: 0 10px 25px rgba(f, f, f, 0.4);
-	max-width: 600px;
-	
-}
+
 
 a {
 	color:#000;
@@ -99,7 +92,7 @@ a {
 	align-items: center;
 	justify-content: center;
 
-	background-color: #284700;
+	background-color: #68B96A;
 	color: #FFFAE5;
 
 	border: 2px solid #F0C493;
@@ -239,8 +232,10 @@ intro-center-foto{
 }
 
 
-
-
+.illustration{
+	width: 100%;
+	max-width: 800px;
+}
 
 
 
@@ -254,8 +249,10 @@ intro-center-foto{
 
 
 #educationbackground {
+	display: grid;
+	grid-template-columns: 2fr 1fr;
 	margin: 4rem 0;
-	background-color: #CFFFC4;
+	background-color: #68B96A;
 	padding: 4rem 10rem;
 
 }
@@ -264,9 +261,7 @@ intro-center-foto{
 
 #last-academic-work {
 	display: grid;
-	grid-template-columns: 2fr 1fr;
-	
-	
+	grid-template-columns: 2fr 1fr;	
 	gap: 10rem;
 	
 }
@@ -287,6 +282,80 @@ intro-center-foto{
 }
 
 
+
+
+
+#calltoaction {
+	
+	background-color: #68B96A;
+	padding: 0 0 2rem 0;
+}
+
+.call_to_action_cards{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	
+}
+
+
+.card_cta {
+	background-color: #fff;
+	border-radius: 14px;
+	padding: 2rem;
+	margin: 6rem 0;
+	box-shadow: 0 10px 25px rgba(f, f, f, 0.4);
+	max-width: 500px;
+	
+	
+}
+
+.secret_signal{
+	margin: 2rem 0 10rem 0;
+}
+
+
+
+.card_dashboard {
+	position: relative;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	color: #fff;
+	max-width: 1100px;
+	width: 100%;
+	margin: 60px auto;
+	min-height: 320px;
+	display: flex;
+	align-items: flex-end;
+	padding: 40px;
+	border-radius: 20px;
+	overflow: hidden;
+	z-index: 0;
+}
+
+
+
+
+.card_dashboard::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.50);
+	z-index: 1; 
+}
+
+
+
+.card_dashboard h3 a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.card_dashboard h3 {
+    position: relative;
+    z-index: 2;
+    margin: 0;
+}
 
 
 
@@ -443,7 +512,7 @@ intro-center-foto{
 
 
 .foto-center{
-	width: 60%;
+	width: 100%;
 	max-width: 1800px;
 	
 }
