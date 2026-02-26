@@ -551,6 +551,7 @@ a {
 .name-of-choised-content{
 	padding-right: 1rem;
 	border-right:2px solid #FFFAE5;
+	color: #fff;
 		
 
 }
@@ -589,6 +590,12 @@ a {
 	
 }
 
+
+.titels_of_content{
+	margin: 2rem 0 3rem 0;
+}
+
+
 .choised-content-grid-right{
 	display: grid;
 	grid-template-columns: 1fr 2fr;
@@ -599,6 +606,7 @@ a {
 	display: grid;
 	grid-template-columns: 2fr 1fr;
 }
+
 
 .foto-for-grid-contents{
 	width:100%;
