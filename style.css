@@ -133,7 +133,8 @@ a {
 .code-text{
 	font-family: Consolas, Monaco, 'Courier New', monospace;
 	font-size: 1.4rem;
-	paddin: 0 0 0 5rem;
+	padding: 2rem 0 2rem 5rem;
+
 	
 }
 
@@ -520,7 +521,7 @@ a {
 
 
 .about_description{
-	padding: 0 0 50rem 0;
+	padding: 0 0 25rem 0;
 }
 
 
@@ -556,10 +557,18 @@ a {
 
 
 
-.chois-template{
+.chois-template {
 	display: block;
 	font-size: 1.4rem;
 	margin: 0.7rem 0.7rem 0 0;
+	color: #fff;
+	text-decoration: none;
+	transition: color 0.2s ease;
+}
+
+.chois-template.active-link {
+	color: #FFD557;
+
 }
 
 .head-of-choises{
@@ -634,9 +643,12 @@ a {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	margin:6rem 0 1rem 0;
+	margin:4rem 0 4rem 0;
 }
 
-
+.dark {
+	background-color: #3A783C;
+	color: #fff;	
+}
 
 
