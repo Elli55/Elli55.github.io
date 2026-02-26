@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="This is page for some Case Stadys about business">
+	<title>Elli</title>
+	<link rel="stylesheet" href="../style.css" type="text/css">
+	<link rel="icon" href="../elli.ico" type="image/icon">
+</head>
+
+<body>
+	<header>
+		<article id="head" >
+			<section class="description-text">
+				<h1>Alrahman Elli Verdiyev</h1>
+			</section>
+			<nav class="right">
+				<ul class="line_ul">
+					<li><a href="../index.html">Home</a></li>
+					<li><a href="../about.html">About</a></li>	
+					<li><a href="WiskeyCase.html">Case Stadys</a></li>
+					<li><a href="../Projects/EscVol.html">Projects/Programs</a></li>
+				</ul>
+			</nav>
+		</article>
+					
+	</header>
+
+
+	<main class="dark">
+		<article id="board" class="container_dark">
+				<section class="name-of-choised-content">
+					<a href="WiskeyCase.html" class="chois-template" >Wiskey Product</a>
+					<a href="Turnover.html" class="chois-template">Turnover</a>
+					<a href="RecruitingKanban.html" class="chois-template  active-link" >Recruiting-Kanban</a>
+					<a href="SylterFish.html" class="chois-template" >Sylter Fish</a>
+
+				</section>
+
+				<section class="choised-content">
+					
+					<div class="content">
+
+						
+						<h3 class="titles_dark">Recruiting-Kanban & Experiment Dashboard (ATS Pipeline, Power BI)</h3>
+
+						<p class="description_dark">The dashboard represents the recruiting process in Kanban logic. 								Important key figures such as Work-in-Process (WIP), Cycle Time, Throughput, Conversion, 							and Time-to-Hire change daily or weekly. Therefore, this case is well suited to make 								agile control visible. The report layout follows the ideas of IBCS/SUCCESS: a clear 								statement in the title, uniform colors, and a reduced design so that HR, IT, and hiring 							managers use a common data language
+						</p>
+
+						<h5 class="subtitle_dark">Data Basis and ETL</h5>
+
+						<p class="description_dark"> The solution uses three synthetic CSV files. ats_pipeline_events 								contains the event log per candidate and stage (Applied, Screen, Interview, Offer, 								Hired/Rejected) with stage_start_date and stage_end_date as well as contextual fields 								such as Department, Role, Seniority, Location, Source, Recruiter, and Variation (A/B). 								ats_candidates provides master data on the candidate (e.g., applied_date, recruiter, 								variation). ats_requisitions describes the vacancy (req_id, department, role, location, 							seniority). In Power BI, the files are imported, data types are set (especially the date 							fields), empty strings are treated as null, and identifiers are standardized. This event 							log is the appropriate foundation for Kanban because start and end timestamps per stage 							later directly enable calculations for CFD, Cycle Time, Aging, and Throughput.
+						</p>
+
+					
+						<h5 class="subtitle_dark">Data Model (Star Schema)</h5>
+
+						<p class="description_dark">The model follows a star schema. The fact table ats_pipeline_events 							lies at the center. The dimensions ats_candidates, ats_requisitions, Dim_Date, and 								Dim_Stage provide the axes of analysis. Between Dim_Date[Date] and 										events[stage_start_date] there is an active 1:n relationship for “Flow-in.” Additionally, 							an inactive relationship from Dim_Date[Date] to events[stage_end_date] is stored. This  							inactive connection is deliberately activated in measures using USERELATIONSHIP() in 								order to correctly control “Flow-out” (e.g., hires per week). Attributes that appear 								twice in the fact table (e.g., department) are hidden in the report; for analyses, the 								columns from the dimensions are used. The model is lean and can easily be extended in 								sprints.
+						</p>
+
+						<figure class="figur-for-fotos-center">
+							<img class="foto-center" src="../Fotos/Casestadys/ART/DataModel.png">
+							<figcaption class="description-text"> Star diagram of the recruiting Kanban in 									Power BI (own representation, cf. GitHub 2025). </figcaption>
+						</figure>
+
+						<h5 class="subtitle_dark">Dimensions and Sorting</h5>
+
+						<p class="description_dark">Dim_Date is generated from the minimum of the start date and the 								maximum of the end date and is extended by Year, MonthNr, MonthText, and WeekNr. 								MonthText is sorted by MonthNr, and the table is marked as a date table. Dim_Stage 								defines the order of stages via stage_order (Applied … Rejected), so that diagrams sort 							consistently. These two tables ensure a clean time and process logic throughout the 								entire report.
+						</p>
+
+						<h5 class="subtitle_dark">Key Figures and Analytical Logic (DAX)</h5>
+
+						<p class="description_dark">The key figures combine descriptive transparency with simple 								prescriptive signals. Three central measures are presented as examples.Time-to-Hire 								(average in days) and Gap-to-Target.  First, the average duration between “Applied” and 							“Hired” is calculated. Afterwards, it is compared with a target value set via a What-If 							parameter.
+						</p>
+
+						<p class="code-text"> TTH := <br>
+										VAR AppliedDate =<br>
+										CALCULATE(<br>
+										MIN(ats_pipeline_events[stage_start_date]),<br>
+										ALLEXCEPT(ats_pipeline_events, 															ats_pipeline_events[candidate_id]),<br>
+
+										ats_pipeline_events[stage] = "Applied")<br>
+										VAR HiredDate :=<br>
+										CALCULATE(<br>
+										MAX(ats_pipeline_events[stage_end_date]),<br>
+										ALLEXCEPT(ats_pipeline_events, 															ats_pipeline_events[candidate_id]),<br>
+
+										ats_pipeline_events[stage] = "Hired")<br>
+										RETURN<br>
+										AVERAGEX(<br>
+										VALUES(ats_pipeline_events[candidate_id]),<br>
+										DATEDIFF(AppliedDate, HiredDate, DAY)<br>
+										)<br>
+						</p>
+
+						<p class="description_dark">The target value is created as a What-If parameter TTH_Target; the 								gap results as Gap_TTH = [TTH] − [TTH_Target Value]. A positive gap indicates an SLA 								deviation and provides a clear impulse for action.
+						</p>
+
+			
+						<p class="description_dark">WIP Limit and Over-Limit.  Kanban actively controls the number of 								parallel cases. WIP counts candidates in the active stages. With a second What-If 								parameter WIP_Limit, the limit is set; Over-Limit immediately signals bottlenecks.
+						</p>
+
+						<p class="code-text">WIP :=<br>
+										CALCULATE(<br>
+   										DISTINCTCOUNT(ats_pipeline_events[candidate_id]),<br>
+    								ats_pipeline_events[stage] IN {"Applied","Screen","Interview","Offer"})<br>
+										WIP_Over_Limit :=<br>
+										VAR Over = [WIP] - [WIP_Limit Wert]<br>
+										RETURN IF(Over > 0, Over, 0)<br>
+							If Over-Limit > 0, overload is present. In practice, this leads to a measure, for example 							lowering the limit or increasing capacity.
+						</p>
+
+						<p class="description_dark"> Throughput per Week (Flow-out).  For Hires and Rejections, the 								report counts cases by end date. For this purpose, the inactive date relationship is 								deliberately activated per measure.
+						</p>
+
+						<p class="code-text"> Hires_Woche :=<br>
+										CALCULATE(<br>
+										DISTINCTCOUNT(ats_pipeline_events[candidate_id]),<br>												ats_pipeline_events[stage] = "Hired",<br>													USERELATIONSHIP(Dim_Date[Date], 														ats_pipeline_events[stage_end_date]))<br><br>
+										Rejected_Woche :=<br>
+										CALCULATE(<br>
+										DISTINCTCOUNT(ats_pipeline_events[candidate_id]),<br>												ats_pipeline_events[stage] = "Rejected",<br>												USERELATIONSHIP(Dim_Date[Date], ats_pipeline_events[stage_end_date]))<br>
+						</p>
+
+						<p class="description_dark"> The time series makes the outflow visible and shows whether the 								process delivers steadily or fluctuates. Together with the Screen-Interview conversion 								and the Cycle Time per stage, clear indications of bottlenecks emerge.
+						</p>
+
+					
+						<h5 class="subtitle_dark">Report Design and Visualization</h5>
+
+						<p class="description_dark"> The first report page provides a compact overview: five KPI cards 									(Candidates, Hires, WIP, TTH, Gap_TTH) show status and target achievement. A 									gauge compares WIP with the limit and marks overload. The Cumulative Flow Diagram 								(stacked area chart) represents the flow across months; in-process stages are 									shown in shades of blue, Hired in green, Rejected in red. A SAY title names the 								core message, for example “TTH above target due to backlog in Screen 										(Engineering).”
+						</p>
+
+						<figure class="figur-for-fotos-center">
+							<img class="foto-center" src="../Fotos/Casestadys/ART/Side1.png">
+							<figcaption class="description-text">Report page 1: Recruiting Overview (Kanban KPIs). / 							Source: Own representation in Power BI (cf. GitHub 2025). </figcaption>
+						</figure>
+
+						
+						<p class="description_dark">The second report page serves root cause analysis. The Cycle Time per 							stage shows where most time is lost. A matrix with Department × Stage highlights the 								distribution of starts per stage; this count based on the start date is robust and 								responds cleanly to date filters. In addition, Hires_Week and Rejected_Week are displayed 							as lines to examine the outflow over the weeks.
+						</p>
+			
+							
+						<figure class="figur-for-fotos-center">
+							<img class="foto-center" src="../Fotos/Casestadys/ART/Side2.png">
+							<figcaption class="description-text">Report page 2: Root cause analysis (cycle time & 								stage analysis). / Source: Own representation in Power BI (cf. GitHub 2025). 									</figcaption>
+						</figure>
+
+						
+
+						<p class="description_dark"> The third report page supports decisions through scenarios. What-If 							parameters (WIP_Limit, TTH_Target, optional Recruiter_Add) and bookmarks (Status Quo, 								Plus Recruiter, WIP Limit −20%, JD Text B) change the view with one click. The KPI cards, 							the gauge, and a small “Over-Limit” card respond immediately. Optionally, a simple rule 							can output a recommendation, for example: If Over-Limit > 0 and Cycle Time in “Screen” is 							high, then lower the limit or deploy +1 recruiter; if conversion is low, test variation 							B.
+						</p>
+
+						
+						<figure class="figur-for-fotos-center">
+							<img class="foto-center" src="../Fotos/Casestadys/ART/Side3.png">
+							<figcaption class="description-text">Report page 3: Scenario views (what-if & 									limitation). / Source: Own representation in Power BI (cf. GitHub 2025).. </figcaption>
+						</figure>
+
+						<h5 class="subtitle_dark">Agile Value and Types of Analysis</h5>
+
+						<p class="description_dark">The solution combines descriptive transparency with prescriptive 								indications. Descriptively, KPI cards, CFD, Cycle Time, and Throughput provide a clear 								picture of the current state and bottlenecks. Simple predictive indications arise from 								trends in Throughput and Conversion. Prescriptively, Gap-to-Target, WIP Limit, and the 								scenarios take effect: they directly lead to concrete measures within the process. 								Through the IBCS-oriented design, communication across departments remains consistent and 							understandable.
+						</p>
+		
+
+
+
+					</div>
+
+
+
+
+
+			</section>	
+
+		</article>
+		
+
+		<article id="contact" class="container_dark">
+			
+				<section >	
+  					<h1>Have a question?</h1>
+				</section>	
+		
+		
+				<section class="center">
+  					<ul class="contact_ul">
+
+ 					<li>
+ 					   	<a href="mailto:mr.elrehman@gmail.com" class="icon-link" aria-label="Email">
+        						<svg class="icon" viewBox="0 0 24 24">
+       						<path d="M2 4h20v16H2V4zm2 2v.511l8 5.334 8-5.334V6H4zm16 12V8.489l-8 5.334-8-5.334V18h16z"/>
+        					</svg>
+      						</a>
+    					</li>
+
+    					<li>
+      						<a href="https://www.linkedin.com/in/alrahman-elli-verdiyev/" target="_blank" class="icon-link" 							aria-label="LinkedIn">
+        						<svg class="icon" viewBox="0 0 24 24">
+        					<path d="M20.45 20.45h-3.554v-5.568c0-1.328-.027-3.037-1.851-3.037-1.853 0-2.136 1.446-2.136 								2.939v5.666H9.356V9h3.414v1.561h.049c.476-.9 1.637-1.851 3.369-1.851 3.602 0 4.267 2.37 							4.267 5.455v6.285zM5.337 7.433a2.062 2.062 0 110-4.124 2.062 2.062 0 010 4.124zM6.999 								20.45H3.674V9h3.325v11.45z"/>
+        					</svg>
+      						</a>
+    					</li>
+	
+    					<li>
+      						<a href="https://github.com/Elli55" target="_blank" class="icon-link" aria-label="GitHub">
+        					<svg class="icon" viewBox="0 0 24 24">
+          						<path d="M12 0C5.37 0 0 5.37 0 12a12 12 0 008.205 11.385c.6.111.82-.261.82-.579 			0-.285-.01-1.04-.015-2.04-3.338.726-4.042-1.609-4.042-1.609-.546-1.386-1.333-1.754-1.333-1.754-1.09-.745.083-.729.083-.729 							1.205.085 1.84 1.237 1.84 1.237 1.07 1.835 2.807 1.305 								3.492.998.108-.775.418-1.305.761-1.605-2.665-.303-5.466-1.333-5.466-5.93 0-1.31.469-2.381 											1.236-3.221-.124-.303-.536-1.523.117-3.176 0 0 1.008-.322 3.301 1.23a11.49 11.49 0 016.006 			0c2.291-1.552 3.297-1.23 3.297-1.23.655 1.653.243 2.873.119 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.805 5.625-5.475 							5.921.43.37.814 1.102.814 2.222 0 1.606-.014 2.901-.014 3.296 0 .321.216.694.825.576A12.003 			12.003 0 0024 12c0-6.63-5.37-12-12-12z"/>
+        					</svg>
+      						</a>
+    					</li>
+
+  				</ul>
+				</section>
+
+		
+			
+				<section>	
+					<h1> Alrahman Elli Verdiyev</h1>
+				</section>
+			</article>
+
+						
+
+
+
+	</main>
+
+
+
+</body>
+
+
+
+</html>

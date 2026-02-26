@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="This is page for some Case Stadys about business">
+	<title>Elli</title>
+	<link rel="stylesheet" href="../style.css" type="text/css">
+	<link rel="icon" href="../elli.ico" type="image/icon">
+</head>
+
+<body>
+	<header>
+		<article id="head" >
+			<section class="description-text">
+				<h1>Alrahman Elli Verdiyev</h1>
+			</section>
+			<nav class="right">
+				<ul class="line_ul">
+					<li><a href="../index.html">Home</a></li>
+					<li><a href="../about.html">About</a></li>	
+					<li><a href="WiskeyCase.html">Case Stadys</a></li>
+					<li><a href="../Projects/EscVol.html">Projects/Programs</a></li>
+				</ul>
+			</nav>
+		</article>
+					
+	</header>
+
+
+	<main class="dark">
+		<article id="board" class="container_dark">
+				<section class="name-of-choised-content">
+					<a href="WiskeyCase.html" class="chois-template" >Wiskey Product</a>
+					<a href="Turnover.html" class="chois-template">Turnover</a>
+					<a href="RecruitingKanban.html" class="chois-template " >Recruiting-Kanban</a>
+					<a href="SylterFish.html" class="chois-template  active-link" >Sylter Fish</a>
+
+				</section>
+
+				<section class="choised-content">
+					
+					<div class="content">
+	
+						<h3 class="titles_dark"> Sylter Fisch Case Stady</h3>
+
+						<p class="description_dark">Our hero “Business Intelligence” today enables data-based decisions 							and adaptation to dynamic market conditions. This company has also recognized such a 								need, particularly in the area of assortment design and customer behavior. The increasing 							competitive pressure in retail as well as rising demands regarding assortment structure 							and customer orientation reinforce this necessity.
+						</p>
+
+						<p class="description_dark">Modern markets are fast-moving, and as a result competition in retail 							has become very strong. For this reason, the logistics manager of “Sylter Fisch” has 								taken the initiative that a new BI system is required. After a requirements analysis with 							the IT department, management approved the project; however, they would like to see 								timely results. Sylter Fisch is a company known for its seafood products. They operate 								over 400 branches throughout Germany. They must organize their supply structure in such a 							way that every branch receives fresh products and controlling can maintain a clear rview.
+						</p>
+
+					
+						<p class="description_dark"> Currently, the data is processed manually, which is very time-								consuming. For example, sales data is used without an automated system. The results of 								campaigns are hardly measurable. Competition between branches is difficult to analyze and 							lacks transparency. With the BI system, we will build a new system that clearly 								visualizes and automates sales analyses. Campaign results will be measured precisely, and 							new campaigns can be planned on a data-driven basis. The performance of branches will 								become comparable and overall performance will increase.	
+						</p>
+
+						<p class="description_dark">In this case study, I will describe a BI prototype with which we can 							clearly analyze sales data, time trends, product activities, and campaign results. My 								main objective is to develop a new system in which decisions are made based on data
+						</p>
+
+
+						<h5 class="subtitle_dark"> Identification of the Operational Systems and Data Requirements</h5>
+
+						<p class="description_dark">In this project, we use three operational sources: POS, ERP, and 								Marketing Excel. The objective is to provide complete sales information with revenue 								reference and to prepare it in such a way that later analyses in Power BI are clearly 								traceable (Time × Product × Branch × Campaign).
+						</p>
+
+						<p class="subtitle_dark">POS (Point of Sale)</p>
+					
+						<p class="description_dark">The cash register systems deliver all individual sales transactions. 							For analytics, we require at least the following fields:</p>
+
+						<div class="ul-with-title">
+							
+
+							<ul>
+								<li>SalesID (unique)</li>
+
+								<li>BranchID</li>
+
+								<li>Date (in ISO format yyyy-mm-dd)</li>
+
+								<li>ProductID</li>
+
+								<li>Quantity (units sold)</li>
+					
+								<li>Unit price (at the time of sale)</li>
+
+								<liRevenue (= Quantity * Unit price, as a decimal number)</li>
+							</ul>
+						</div>
+
+						<p class="description_dark">This ensures that the origin of revenue is transparent and traceable 							for the reviewer.</p>
+
+						<p class="subtitle_dark">ERP (Product and Master Data)</p>
+			
+						<div class="ul-with-title">
+							<p class="ul-li-title">The ERP system provides product and branch master data:</p>
+
+							<ol>
+								<li>Product: ProductID, ProductName, Category, Origin</li>
+
+								<li>Branch: BranchID, Location, optional Region, Area_sqm</li>
+
+							</ol>
+						</div>	
+					
+						<p class="description_dark">These data serve as dimension tables for later modeling (relational 							and in Power BI).
+						</p>
+
+						<p class="subtitle_dark"> Marketing Excel (Campaigns)</p>
+
+						<div class="ul-with-title">
+							<p class="ul-li-title">The marketing department maintains campaigns in Excel/CSV. For the 									connection to the fact table, two variants are possible:</p>
+
+							<ol>
+								<li>Variant A: Campaigns at product level<br>
+									CampaignID, CampaignName, StartDate, EndDate, ProductID, 											Discount_percent</li>
+
+								<li>Variant B (flexible): Campaigns with bridge table<br>
+									dim_campaign (CampaignID, Name, StartDate, EndDate)<br>
+									bridge_campaign_product (CampaignID, ProductID, optional 											Discount_percent)</li>
+
+							</ol>
+						</div>	
+		
+		
+						<p class="description_dark">With Variant B, multiple products per campaign can be represented 								without violating the data model. Later in the ETL process, we mark sales within the 								campaign period with a flag so that reports can cleanly separate “with/without campaign.”
+						</p>
+
+			
+						<div class="ul-with-title">
+
+							<p class="ul-li-title">Data Quality Rules (Minimum)</p>					
+							
+
+							<ul>
+								<li>Date format consistently ISO (yyyy-mm-dd).</li>
+
+								<li>Quantity ≥ 0; Unit price ≥ 0; Revenue is calculated, not entered 											manually.</li>
+								
+								<li>Missing origin in dim_product temporarily classified as “Unknown” 											(transparent rule).</li>
+
+								<li>Duplicates in POS rows removed; primary key verified.</li>
+
+							</ul>
+						</div>	
+
+			
+						<p class="subtitle_dark"> Minimal Examples (CSV Structures)</p>
+
+						<p class="ul-li-title">POS – Sales</p>
+
+						<p class="code-text">
+							VerkaufsID,FilialID,Datum,ProduktID,Menge,Einzelpreis (€),Rabatt (%),Umsatz (€)<br>
+							2001,F002,2025-06-22,P127,1,9.99,10,<br>
+							2002,,2025-06-17,P130,2,13.49,10,<br>
+							2003,F004,2025-06-09,P130,3,11.49,10,<br>
+							2004,F003,2025-06-01,P125,4,9.99,0,<br>
+							2005,F001,2025-06-21,P130,2,9.99,5,<br>
+						</p>
+					
+						
+						<p class="ul-li-title">ERP – Product</p>
+
+						<p class="code-text">
+							ProduktID,Produktname,Kategorie,Herkunft<br>
+							P100,Produkt_0,Ersatzprodukt,Niederlande<br>
+							P101,Produkt_1,Feinkost,Deutschland<br>
+							P102,Produkt_2,Ersatzprodukt,Niederlande<br>
+							P103,Produkt_3,Dessert,Norwegen<br>
+							P104,Produkt_4,Ersatzprodukt,<br>
+						</p>
+
+
+						
+						<p class="ul-li-title">Marketing – Campaign (Variant A)</p>
+				
+						<p class="code-text">
+
+							KampagnenID,Name der Kampagne,Startdatum,Enddatum,ProduktID,Rabatt (%)<br>
+							K2025-01,Kampagne_1,2025-06-01,2025-06-11,P135,20<br>
+							K2025-01,Kampagne_1,2025-06-01,2025-06-11,P124,20<br>
+							K2025-02,Kampagne_2,2025-06-03,2025-06-13,P156,20<br>
+							K2025-02,Kampagne_2,2025-06-03,2025-06-13,P151,20<br>
+							K2025-02,Kampagne_2,2025-06-03,2025-06-13,P122,20<br>
+						</p>
+
+						<h5 class="subtitle_dark">. Conception and Implementation of the Data Model</h5>
+
+						<p class="description_dark">The operational systems from which the data for the BI project 								originate have now been described. On this basis, a model was developed that structures 							the information and prepares it for analysis in Power BI. The goal was to create a model 							that is easy to understand and at the same time represents all important connections 								between the data.
+						</p>
+
+
+
+						<p class="subtitle_dark">Basic Idea of the Model</p>
+
+						<p class="description_dark">For the project, the star schema was chosen. This schema is clearly 							structured and well suited for BI applications because it enables fast queries and clear 							relationships. At the center stands a fact table in which the sales data are stored. It 							contains all key figures that are later used in analyses, for example the quantity sold, 							the unit price, the discount, and the calculated revenue.
+						</p>
+
+						<p class="description_dark">Revenue was calculated according to the previously defined 									formula:<br>
+
+							<em>Revenue = Quantity × Unit price × (1 − Discount / 100)</em>
+						</p>
+
+						<div class="ul-with-title">
+
+							<p class="ul-li-title">Around the fact table, there are several dimension tables that 									contain additional information. These include:</p>					
+							
+
+							<ul>
+								<li>Product dimension: Product name, category, and origin</li>
+
+								<li>Branch dimension: Location, region, and size of the branch</li>
+								
+								<li>Time dimension: Date, month, year, and weekday.</li>
+
+							</ul>
+						</div>	
+				
+						<p class="description_dark">Through this structure, sales can be analyzed from different 								perspectives, for example by period, product, or location.</p>
+
+						<h5 class="subtitle_dark">Implementation of the Model</h5>
+
+						<p class="description_dark">The model was first designed logically and then implemented 								technically. Each table has a unique key so that the relationships remain unambiguous. 								The connections follow the classic star pattern. A central fact table stands at the 								center and is connected to the three dimension tables via key values. In Power BI, these 							connections are automatically recognized once the files are imported.In the model view, 							this results in a clear star shape that shows the relationships between the tables.
+						</p>
+			
+															
+						<div class="ul-with-title">
+
+							<p class="ul-li-title">A brief excerpt of the structure:</p>					
+							
+
+							<ul>
+								<li>fact_sales - dim_product: Connection via ProductID</li>
+
+								<li>fact_sales - dim_branch: Connection via BranchID</li>
+								
+								<li>fact_sales - dim_date: Connection via Date</li>
+
+							</ul>
+						</div>	
+						
+						<p class="description_dark">This simple structure makes it possible to combine data from 								different sources without requiring complicated joins or long SQL queries.
+						</p>
+
+						
+						<figure class="figur-for-fotos-center">
+							<img class="foto-center" src="../Fotos/Casestadys/SylterFisch/DataModel1.png">
+							<figcaption class="description-text">Data Model in Power BI </figcaption>
+						</figure>
+
+			
+						<h5 class="subtitle_dark">Calculation and Use of Key Figures</h5>
+
+						<p class="description_dark"> Revenue can either be stored directly in the database or calculated 							in Power BI. In this work, the second variant was used, as it is more flexible. The 								calculation was carried out in Power BI using a simple formula that is automatically 								executed for each row. As a result, the model remains dynamic: if prices or quantities 								change, the revenue value adjusts automatically.
+						</p>
+		
+						<p class="description_dark">With this data model, the foundation for the subsequent ETL process 							has been created. The data are now structured in such a way that they can be cleaned, 								combined, and analyzed in Power BI in the next step.
+						</p>
+
+						
+
+						<h5 class="subtitle_dark">ETL Process (Extract, Transform, Load)</h5>
+
+						<p class="description_dark">The ETL process is a central component of every business intelligence 							solution. It ensures that data from different sources are collected, cleaned, and 								prepared for analysis. At Sylter Fisch, the ETL process consists of three steps: 								extraction, transformation, and loading.
+						</p>
+
+						<p class="subtitle_dark">Extract (Data Extraction)</p>
+
+						<p class="description_dark"> In this step, the data are taken from the operational systems.
+							At Sylter Fisch, they come from three sources. The POS system (sales), the ERP system 								(products and inventory data) and the Excel files from marketing (campaigns). All data 								are exported as CSV files because this format is easy to process. The files are stored in 							a so-called staging area, where they can later be further processed.
+						</p>
+
+
+
+						<p class="subtitle_dark">Transform (Data Cleansing and Harmonization)</p>
+
+						<p class="description_dark">In the transformation phase, the data are checked, cleaned, and 								standardized.
+							The goal is to obtain clean and consistent information for analysis.
+						</p>
+
+						<div class="ul-with-title">
+
+							<p class="ul-li-title">The most important steps include:</p>					
+							
+
+							<ul>
+								<li>Format adjustment: Date formats are standardized (e.g., “2025-06-10”).</li>
+
+								<li>Error correction: Null values and duplicates are removed.</li>
+								
+								<li>Revenue calculation: Revenue is calculated from quantity and unit price.</li>
+							</ul>
+						</div>	
+						<p class="description_dark">In this way, no confusion arises regarding the origin of the 								figures.</p>
+
+					
+						<p class="description_dark">For illustration purposes, a small Python script was created that 									automatically performs the cleansing. Through this simple procedure, it is 									ensured that all revenue figures are correct and traceable.			
+						</p>
+
+						
+
+						<h5 class="subtitle_dark">BI Prototype</h5>
+				
+						<p class="description_dark">In this chapter, I describe the practical implementation of my 								business intelligence prototype for the company Sylter Fisch. The objective was to 								demonstrate the theoretical foundations from the previous chapters especially the data 								model and the ETL process –in a functioning BI solution. I worked with Python (Pandas) 								and Power BI.
+						</p>
+
+						<p class="description_dark">All scripts, datasets, and screenshots are documented in my GitHub 									repository:<br>
+							<a href="https://github.com/Elli55/BI-Prototyp">https://github.com/Elli55/BI-Prototyp</a>
+						</p>
+
+
+						<h5 class="subtitle_dark">ETL Implementation with Python</h5>
+
+						<p class="description_dark">The initial data consisted of four CSV files: verkauf.csv, 									produkt.csv, filiale.csv and kampagne.csv.  I processed these files in Google Colab using 							Python in order to clean them, standardize them, and prepare them for Power BI.
+						</p>
+
+						<p class="ul-li-title">An example from my code:</p>
+
+						<p class="code-text">import pandas as pd <br>
+ 
+								verkauf = pd.read_csv("verkauf.csv") <br>
+								verkauf['Datum'] = pd.to_datetime(verkauf['Datum'], format='%Y-%m-%d') <br>
+								verkauf.dropna(inplace=True) <br>
+								verkauf.drop_duplicates(inplace=True) <br>
+								verkauf['Umsatz'] = verkauf['Menge'] * verkauf['Einzelpreis'] <br>
+								verkauf['Kampagne_Flag'] = verkauf['Datum'].between('2025-06-01', '2025-06-14')									
+						</p>
+
+						<p class="description_dark">With this ETL process, all data were cleaned automatically. The 								automatic revenue calculation was particularly important, as it prevents manual errors. I 							then saved the cleaned data as new files (produkte_clean, filialen_clean, 									verkauf_powerbi, Kampaniyalar_zr) and imported them into Power BI.
+						</p>
+
+					
+						<p class="subtitle_dark">Relational Data Model</p>
+
+						<p class="description_dark">The data model was built in Power BI according to the star schema 								principle, but in a compact, practice-oriented variant. At the center stands the fact 								table verkauf_powerbi, which contains all sales and discount information. Around it are 							three main dimensions as well as a supplementary campaign table in which additional DAX-							based key figures are stored.
+						</p>
+
+			
+						<div class="ul-with-title">
+
+							<p class="ul-li-title">The relationships were automatically recognized in Power BI:</p>					
+							
+
+							<ul>
+								<li>produkte_clean[ProduktID] - verkauf_powerbi[ProduktID]</li>
+
+								<li>filialen_clean[FilialID] - verkauf_powerbi[FilialID]</li>
+								
+								<li>Kampaniyalar_zr[ProduktID] → verkauf_powerbi[ProduktID]</li>
+							</ul>
+						</div>	
+
+	
+						<p class="description_dark">A separate time dimension (dim_date) was not created, since the date 							field is directly integrated into the fact table. This makes the model more compact, but 							still fully suitable for analyses by period, product, region, and campaign.
+						</p>
+
+						<p class="subtitle_dark">Data Loading and Validation</p>
+			
+						<p class="description_dark">After cleansing, I loaded all four files into Power BI. The 								relationships were automatically recognized and displayed in the model view.
+						</p>
+
+			
+						<figure class="figur-for-fotos-center">
+							<img class="foto-center" src="../Fotos/Casestadys/SylterFisch/DataModel2.png">
+							<figcaption class="description-text">First page of the BI prototype</figcaption>
+						</figure>
+
+						<p class="description_dark">For verification, I created simple DAX formulas to ensure that all 								revenue figures were transferred correctly:
+						</p>
+		
+						<p class="code-text">Umsatz_Total = SUM(verkauf_powerbi[Umsatz])<br>
+							Avg_Warenkorb = DIVIDE(SUM(verkauf_powerbi[Umsatz]),<br>
+							COUNTROWS(verkauf_powerbi))<br>
+						</p>
+
+
+						<p class="subtitle_dark">Visualization in the Power BI Dashboard</p>
+
+						<p class="description_dark">The finished BI prototype consists of four report pages that cover 								different analysis objectives. All pages were designed according to IBCS and Hichert 								SUCCESS principles in order to visualize the information clearly and consistently.
+						</p>
+
+
+
+
+						<p class="subtitle_dark">Page 1 - KPI Overview</p>
+						
+						<div class="ul-with-title">
+
+							<p class="ul-li-title">This page serves as a management cockpit and displays the most 									important performance indicators at a glance:</p>					
+							
+
+							<ul>
+								<li>Total revenue</li>
+
+								<li>Average basket value</li>
+								
+								<li>Monthly revenue growth (MoM)</li>
+
+								<li>Top 3 products by revenue</li>
+							</ul>
+						</div>	
+
+
+
+						<p class="ul-li-title">Example DAX formula for monthly growth:</p>
+
+						<p class="code-text">Umsatz_MoM =<br>
+							VAR PrevMonth =<br>
+							CALCULATE([Umsatz_Total], DATEADD(verkauf_powerbi[Datum], -1, MONTH))<br>
+							RETURN DIVIDE([Umsatz_Total] - PrevMonth, PrevMonth)<br>
+						</p>
+
+						<figure class="figur-for-fotos-center">
+							<img class="foto-center" src="../Fotos/Casestadys/SylterFisch/Side1.png">
+							<figcaption class="description-text">Star Schema Model, logical representation 									</figcaption>
+						</figure>
+						
+	
+						<p class="description_dark">A line chart shows the revenue trend, and next to it KPI cards 								provide quick decision support. This page gives management an overview of the current 								business trend.
+						</p>
+
+
+
+
+						
+						<p class="subtitle_dark">Page 2 - Product Analysis</p>
+
+						<p class="description_dark">Produkt_Umsatz = SUMX(verkauf_powerbi, verkauf_powerbi[Menge] * 									verkauf_powerbi[Einzelpreis])
+						</p>						
+
+						<p class="ul-li-title">Example DAX:</p>
+
+						<p class="code-text">Umsatz_Pro_Qm = DIVIDE(SUM(verkauf_powerbi[Umsatz]), 												SUM(filialen_clean[Flaeche_qm]))<br>
+						</p>
+				
+						<figure class="figur-for-fotos-center">
+							<img class="foto-center" src="../Fotos/Casestadys/SylterFisch/Side2.png">
+							<figcaption class="description-text">Second page of the BI prototype </figcaption>
+						</figure>
+
+						<p class="description_dark">Through filters (e.g., category or product name), one can easily 								recognize which products generate the most revenue or show seasonal fluctuations.
+						</p>
+
+
+
+
+
+
+
+						<p class="subtitle_dark">Page 3 - Geographic Analysis</p>
+
+						<p class="description_dark">This page shows regional differences between branches. For this 								purpose, the table filialen_clean was used.
+						</p>
+
+						<div class="ul-with-title">							
+
+							<ul>
+								<li>Map visualization: Revenue per branch</li>
+
+								<li>Table: Revenue per square meter (Flaeche_qm)</li>
+								
+							</ul>
+						</div>	
+
+						<p class="ul-li-title">DAX formula:</p>
+
+						<p class="code_dark">Umsatz_Pro_Qm = DIVIDE(SUM(verkauf_powerbi[Umsatz]), 											SUM(filialen_clean[Flaeche_qm]))
+						</p>
+
+						<figure class="figur-for-fotos-center">
+							<img class="foto-center" src="../Fotos/Casestadys/SylterFisch/Side3.png">
+							<figcaption class="description-text">Third page of the BI prototype </figcaption>
+						</figure>
+
+						<p class="description_dark">With this analysis, it becomes immediately visible which regions 								perform better or weaker. This is particularly helpful for logistics and location 								optimization.
+						</p>
+
+
+
+
+						<p class="subtitle_dark">Page 4 - Campaign Analysis</p>
+
+						<p class="description_dark">This page analyzes the success of discount campaigns. Sales during a 								campaign (Kampagne_Flag = TRUE) are compared with non-campaign sales.
+						</p>
+
+						<p class="code-text">Kampagnen_Umsatz =<br>
+							CALCULATE(SUM(verkauf_powerbi[Umsatz]),<br>
+							verkauf_powerbi[Kampagne_Flag] = TRUE)<br><br>
+
+							NichtKampagnen_Umsatz =<br>
+							CALCULATE(SUM(verkauf_powerbi[Umsatz]),<br>
+							verkauf_powerbi[Kampagne_Flag] = FALSE)<br><br>
+
+							Rabatt_Durchschnitt = AVERAGE(Kampaniyalar_zr[Rabatt (%)])<br>
+						</p>
+
+						<figure class="figur-for-fotos-center">
+							<img class="foto-center" src="../Fotos/Casestadys/SylterFisch/Side4.png">
+							<figcaption class="description-text">Fourth page of the BI prototype</figcaption>
+						</figure>
+
+						<p class="description_dark">The visualizations consist of column charts, KPI cards, and a product 							table with the best promotional items. In this way, the marketing team can directly see 							which campaigns actually led to revenue increases.
+						</p>
+
+						
+					
+						<p class="subtitle_dark">Result and Benefit</p>
+
+						<p class="description_dark">The developed BI prototype for Sylter Fisch shows how operational 								data from different sources can be combined in a compact, clearly structured model. 								Through the combination of Python (for ETL) and Power BI (for visualization), a flexible 							system is created that:
+						</p>
+
+						<div class="ul-with-title">							
+
+							<ul>
+								<li>transparently presents sales figures,</li>
+
+								<li>highlights regional differences,</li>
+
+								<li>makes campaigns measurable,</li>
+
+								<li>supports data-based decisions.</li>
+								
+							</ul>
+						</div>	
+
+						<p class="description_dark">The project proves that even with manageable resources, a 									professional, agile BI solution is possible a first step toward a data-driven corporate 							culture at Sylter Fisch.
+						</p>
+
+						
+						
+	
+	
+						<h5 class="subtitle_dark">Reflection and Answer to the Assignment</h5>
+
+						<p class="description_dark">In this case study, it was shown how a business intelligence system 							can be built for the company Sylter Fisch. The goal was to develop a solution that 								combines sales data from different sources and thus enables data-based decision-making. 							In the following, it is briefly reflected how the assignment was fulfilled and which 								results were achieved.
+						</p>
+
+						<p class="subtitle_dark">Identification of the operational systems:</p>
+
+						<p class="description_dark">The three used sources (POS, ERP, and Marketing) were clearly defined 							and described. The POS data delivered the sales information, the ERP system provided the 							product and branch data, and the marketing Excel file supplied the campaigns. This 								established a complete foundation for later analysis.
+						</p>
+
+						<p class="subtitle_dark">Data modeling:</p>
+
+						<p class="description_dark">The star schema was chosen as the logical model. It contains a fact 							table for sales data and several dimension tables (product, branch, date, campaign). This 							structure was technically implemented in Power BI and allows clear and fast evaluations.
+						</p>
+
+						<p class="subtitle_dark">ETL process:</p>
+
+						<p class="description_dark">The ETL process was implemented using Python (Pandas). The data were 							cleaned, standardized, and enriched with additional key figures (e.g., revenue, 								Kampagne_Flag). The code transparently shows how the data were processed and prepared for 							Power BI.
+						</p>
+
+						<p class="subtitle_dark">Visualization and analysis:</p>
+
+						<p class="description_dark">The Power BI dashboard consists of four pages: KPI overview, product 							analysis, geographic analysis, and campaign analysis. Each page presents different 								perspectives and enables management decisions based on data. In particular, the 								comparison of branch revenues and campaign performance provides high added value.
+						</p>
+
+						
+						<p class="subtitle_dark">Evaluation of the implementation:</p>
+
+						<p class="description_dark">The chosen approach was deliberately pragmatic and easy to implement. 							Python and Power BI complement each other well in order to create a functioning, agile BI 							system. For a future version, the use of a SQL database as a physical foundation would be 							useful to design data storage even more professionally.
+						</p>					
+
+					</div>
+
+
+
+
+
+			</section>	
+
+		</article>
+		
+
+		<article id="contact" class="container_dark">
+			
+				<section >	
+  					<h1>Have a question?</h1>
+				</section>	
+		
+		
+				<section class="center">
+  					<ul class="contact_ul">
+
+ 					<li>
+ 					   	<a href="mailto:mr.elrehman@gmail.com" class="icon-link" aria-label="Email">
+        						<svg class="icon" viewBox="0 0 24 24">
+       						<path d="M2 4h20v16H2V4zm2 2v.511l8 5.334 8-5.334V6H4zm16 12V8.489l-8 5.334-8-5.334V18h16z"/>
+        					</svg>
+      						</a>
+    					</li>
+
+    					<li>
+      						<a href="https://www.linkedin.com/in/alrahman-elli-verdiyev/" target="_blank" class="icon-link" 							aria-label="LinkedIn">
+        						<svg class="icon" viewBox="0 0 24 24">
+        					<path d="M20.45 20.45h-3.554v-5.568c0-1.328-.027-3.037-1.851-3.037-1.853 0-2.136 1.446-2.136 								2.939v5.666H9.356V9h3.414v1.561h.049c.476-.9 1.637-1.851 3.369-1.851 3.602 0 4.267 2.37 							4.267 5.455v6.285zM5.337 7.433a2.062 2.062 0 110-4.124 2.062 2.062 0 010 4.124zM6.999 								20.45H3.674V9h3.325v11.45z"/>
+        					</svg>
+      						</a>
+    					</li>
+	
+    					<li>
+      						<a href="https://github.com/Elli55" target="_blank" class="icon-link" aria-label="GitHub">
+        					<svg class="icon" viewBox="0 0 24 24">
+          						<path d="M12 0C5.37 0 0 5.37 0 12a12 12 0 008.205 11.385c.6.111.82-.261.82-.579 			0-.285-.01-1.04-.015-2.04-3.338.726-4.042-1.609-4.042-1.609-.546-1.386-1.333-1.754-1.333-1.754-1.09-.745.083-.729.083-.729 							1.205.085 1.84 1.237 1.84 1.237 1.07 1.835 2.807 1.305 								3.492.998.108-.775.418-1.305.761-1.605-2.665-.303-5.466-1.333-5.466-5.93 0-1.31.469-2.381 											1.236-3.221-.124-.303-.536-1.523.117-3.176 0 0 1.008-.322 3.301 1.23a11.49 11.49 0 016.006 			0c2.291-1.552 3.297-1.23 3.297-1.23.655 1.653.243 2.873.119 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.805 5.625-5.475 							5.921.43.37.814 1.102.814 2.222 0 1.606-.014 2.901-.014 3.296 0 .321.216.694.825.576A12.003 			12.003 0 0024 12c0-6.63-5.37-12-12-12z"/>
+        					</svg>
+      						</a>
+    					</li>
+
+  				</ul>
+				</section>
+
+		
+			
+				<section>	
+					<h1> Alrahman Elli Verdiyev</h1>
+				</section>
+			</article>
+
+						
+
+
+
+	</main>
+
+
+
+</body>
+
+
+
+</html>

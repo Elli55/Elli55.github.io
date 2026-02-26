@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="This is page for some Case Stadys about business">
+	<title>Elli</title>
+	<link rel="stylesheet" href="../style.css" type="text/css">
+	<link rel="icon" href="../elli.ico" type="image/icon">
+</head>
+
+<body>
+	<header>
+		<article id="head" >
+			<section class="description-text">
+				<h1>Alrahman Elli Verdiyev</h1>
+			</section>
+			<nav class="right">
+				<ul class="line_ul">
+					<li><a href="../index.html">Home</a></li>
+					<li><a href="../about.html">About</a></li>	
+					<li><a href="wiskey_case.html">Case Stadys</a></li>
+					<li><a href="../Projects/EscVol.html">Projects/Programs</a></li>
+				</ul>
+			</nav>
+		</article>
+					
+	</header>
+
+
+	<main class="dark">
+		<article id="board" class="container_dark">
+				<section class="name-of-choised-content">
+					<a href="WiskeyCase.html" class="chois-template" >Wiskey Product</a>
+					<a href="Turnover.html" class="chois-template active-link">Turnover</a>
+					<a href="RecruitingKanban.html" class="chois-template" >Recruiting-Kanban</a>
+					<a href="SylterFish.html" class="chois-template" >Sylter Fish</a>
+
+				</section>
+
+				<section class="choised-content">
+					
+					<div class="content">
+						<h3 class="titles_dark"> Method and Implementation Turnover Dashboard (Power BI)</h3>
+
+						<p class="description_dark">The practical implementation of the first dashboard (Overview) aimed 							to make employee turnover visible while simultaneously integrating agile elements. The 								intention was to demonstrate how a functional HR dashboard can be developed with 								manageable effort. The process consisted of three parts: data preparation (ETL) in 								Python, the construction of a clear data model in Power BI, and the visualization of the 							most important key figures. In addition, I incorporated agile functions: a What-If 								parameter (“Target Attrition %”), the metric Gap-toTarget, a simple Risk Score, and a 								status card with warning indicators. As a result, the dashboard was iteratively extended 							and corresponds to the first sprint.						
+						</p>
+
+						<h5 class="subtitle_dark">Data Preparation in Kaggle</h5>
+
+						<p class="description_dark">As a data source,  I used an open HR dataset from Kaggle. This 								contained employee information such as age, income, department, or attrition status. In a 							Kaggle notebook, I performed basic data cleansing steps using Python (Pandas and NumPy).
+						</p>
+
+						<a href="https://www.kaggle.com/code/lrhmanelliverdiyev/turnover-seminararbeit-u-akademei" 								target="_blank">https://www.kaggle.com/code/lrhmanelliverdiyev/turnover-seminararbeit-u-							akademei
+						</a>
+
+						<div class="ul-with-title">
+							<p class="ul-li-title">This included:</p>
+
+							<ul>
+								<li>Standardizing column names for easier further processing</li>
+
+								<li>Converting relevant variables into categories</li>
+
+								<li>Creating age, tenure, and income bands</li>
+
+								<li>As well as creating flags, for example for attrition (0/1) and overtime (0/1)								</li>
+							</ul>
+						</div>
+
+
+						<p class="description_dark">The result was a cleaned file hr_clean.csv, which served as the basis 							for Power BI. It is important to note that Kaggle was used exclusively for data 								cleansing, the visualization was carried out later in Power BI.
+						</p>
+		
+						
+						<h5 class="subtitle_dark">ETL Process (Practical Procedure)</h5>
+
+						<p class="description_dark"> For my work, I prepared the HR data using a simple ETL process in 								Power BI. First, I imported the raw data from an Excel or CSV file into Power BI. Then I 							renamed the column names so that they were clear and consistent, for example “EmpID,” 								“Attrition,” or “OvertimeHours.” After that, I adjusted the data types, meaning whether 							they were numbers, text, or date values. In the next step, I cleaned the data. This means 							that I removed or corrected missing or incorrect values. Afterwards, I created new 								variables, for example a flag “Attrition = 1,” to clearly see which employees had left 								the company. In addition, I grouped certain attributes, for example salary classes or age 							groups. This makes the data easier to compare.
+						</p>
+
+
+						<p class="description_dark">The data model was also very important. For this purpose, I built a 							star schema that shows the connection between fact and dimension tables. Finally, I 								loaded the data into the model and was then able to create the visualizations and 								analyses in the dashboards.
+						</p>
+
+						
+							
+						<h5 class="subtitle_dark">Data Model in Power BI</h5>
+						
+
+						<p class="description_dark">After importing the cleaned CSV file into Power BI, I built a star 								schema. The central fact table (Fact_HR) contains all employee data. In addition, I 								created dimension tables, for example Dim_Department, Dim_JobRole, Dim_AgeBand, 								Dim_TenureBand, and Dim_IncomeBand.
+						</p>
+
+						<p class="description_dark">The relationships were created as (1: n). For the age and tenure 								bands, I inserted helper columns for sorting, whereby the order had to be adjusted 								manually in some visualizations. This approach makes the model clear and at the same time 							flexible. There is also a small table _Measures. It is deliberately created without 								relationships and serves only as a container for all DAX measures. The placeholder column 							is hidden; only the measures are visible in the report. This keeps the model clear and 								still flexible.
+						</p>
+			
+						<figure class="figur-for-fotos-center">
+							<img class="foto-center" src="../Fotos/Casestadys/Turnover/DataModel.png">
+							<figcaption class="description-text"> Star schema of the HR data model. </figcaption>
+						</figure>
+
+
+						<h5 class="subtitle_dark"> Key Figures (DAX)</h5>
+
+						<div class="ul-with-title">
+							<p class="ul-li-title"> For the analysis, I calculated central key figures using DAX. 									These include:</p>
+
+							<ul>
+								<li>Headcount = Total number of employees</li>
+
+								<li>Attrition Count = Number of employees who have left</li>
+
+								<li>Attrition Rate = Ratio of employees who have left to total employees</li>
+
+								<li>Overtime Rate = Proportion of employees with overtime</li>
+
+								<li>Avg Income = Average monthly income.</li>
+							</ul>
+						</div>
+
+						<p class="description_dark">These key figures enable both an overall overview and detailed 								analyses by departments, roles, or employee groups.
+						</p>
+
+
+						<h5 class="subtitle_dark">Report Pages in Power BI</h5>
+
+						<p class="description_dark"> Das Dashboard besteht aus drei Seiten.</p>
+				
+						<p class="description_dark">Overview: In addition to the central key figures (Headcount, 								Attrition Rate,	Overtime Rate, Avg Income), agile extensions were integrated. These 								include a What-If parameter for the attrition target, the key figure Gap-to-Target, a 								simple Risk Score, and a status card. In this way, turnover is not only described but 								also compared with target values and linked to risk indicators.
+						</p>
+
+						<figure class="figur-for-fotos-center">
+							<img class="foto-center" src="../Fotos/Casestadys/Turnover/Side1.png">
+							<figcaption class="description-text">Report page 1: Overview / Source: Own representation 								in Power BI (cf. GitHub 2025). </figcaption>
+						</figure>
+	
+
+						<p class="description_dark">Deep-Dive (Decomposition Tree): Here, the attrition rate could be 								broken down step by step according to various influencing factors (e.g., department, 								overtime, income, tenure). Slicers were deliberately reduced in order to keep the 								analysis freely exploratory.  In addition, two small KPIs (Attrition Rate and Gap-to-								Target) remained visible to that the target values were not lost. This clearly reflects 							the agile idea of interactive exploration.
+						</P>
+
+						<figure class="figur-for-fotos-center">
+							<img class="foto-center" src="../Fotos/Casestadys/Turnover/Side2.png">
+							<figcaption class="description-text"> Report page 2: Deep dive (breakdown tree). / 								Source: Own representation in Power BI (cf. GitHub 2025). </figcaption>
+						</figure>
+
+		
+						<p class="description_dark">Decision Support (Extended Drillthrough): The third page was expanded 							into an agile decision dashboard. In addition to detailed analyses per department, it 								contains three scenario buttons (Status Quo, Overtime-Cap, Onboarding-Boost) that 								simulate different situations. A recommendation card automatically provides suggestions 							(e.g., limit overtime, strengthen onboarding). A table shows the top 5 risk roles based 							on the new measure “Risk Score.” Demographic visualizations (age, tenure) immediately 								adapt to the selected scenario. This makes this page the clearest example of Agile BI. 
+						</p>
+
+						<figure class="figur-for-fotos-center">
+							<img class="foto-center" src="../Fotos/Casestadys/Turnover/Side3.png">
+							<figcaption class="description-text"> Report page 3: Drillthrough – Department Detail. / 								Source: Own representation in Power BI (cf. GitHub 2025) </figcaption>
+						</figure>
+
+						<h5 class="subtitle_dark">Descriptive Results</h5>
+
+						<p class="description_dark">The dashboard shows typical patterns of employee turnover that are 								also described in the literature. Younger employees (e.g., in the age band 18–25 years) 							and individuals with short organizational tenure (≤ 1 year) have a significantly higher 							exit rate. The risk likewise increases when overtime is regularly performed. Job roles in 							the Sales area are particularly affected.
+						</p>
+
+						<p class="description_dark">What was new here was that the results were not only visible 								descriptively but were also connected with agile elements. With the What-If parameter, a 							target value for turnover could be set, and the Gap-to-Target metric immediately showed 							the deviation between actual and target. The simple Risk Score combined factors such as 							overtime, tenure, and income, thereby making risk segments clearly recognizable. In this 							way, a purely descriptive analysis became an agile instrument that not only identifies 								patterns but also opens up scope for decision-making .
+						</p>						
+
+
+					</div>
+
+
+
+			</section>	
+
+		</article>
+		
+
+		<article id="contact" class="container_dark">
+			
+				<section >	
+  					<h1>Have a question?</h1>
+				</section>	
+		
+		
+				<section class="center">
+  					<ul class="contact_ul">
+
+ 					<li>
+ 					   	<a href="mailto:mr.elrehman@gmail.com" class="icon-link" aria-label="Email">
+        						<svg class="icon" viewBox="0 0 24 24">
+       						<path d="M2 4h20v16H2V4zm2 2v.511l8 5.334 8-5.334V6H4zm16 12V8.489l-8 5.334-8-5.334V18h16z"/>
+        					</svg>
+      						</a>
+    					</li>
+
+    					<li>
+      						<a href="https://www.linkedin.com/in/alrahman-elli-verdiyev/" target="_blank" class="icon-link" 							aria-label="LinkedIn">
+        						<svg class="icon" viewBox="0 0 24 24">
+        					<path d="M20.45 20.45h-3.554v-5.568c0-1.328-.027-3.037-1.851-3.037-1.853 0-2.136 1.446-2.136 								2.939v5.666H9.356V9h3.414v1.561h.049c.476-.9 1.637-1.851 3.369-1.851 3.602 0 4.267 2.37 							4.267 5.455v6.285zM5.337 7.433a2.062 2.062 0 110-4.124 2.062 2.062 0 010 4.124zM6.999 								20.45H3.674V9h3.325v11.45z"/>
+        					</svg>
+      						</a>
+    					</li>
+	
+    					<li>
+      						<a href="https://github.com/Elli55" target="_blank" class="icon-link" aria-label="GitHub">
+        					<svg class="icon" viewBox="0 0 24 24">
+          						<path d="M12 0C5.37 0 0 5.37 0 12a12 12 0 008.205 11.385c.6.111.82-.261.82-.579 			0-.285-.01-1.04-.015-2.04-3.338.726-4.042-1.609-4.042-1.609-.546-1.386-1.333-1.754-1.333-1.754-1.09-.745.083-.729.083-.729 							1.205.085 1.84 1.237 1.84 1.237 1.07 1.835 2.807 1.305 								3.492.998.108-.775.418-1.305.761-1.605-2.665-.303-5.466-1.333-5.466-5.93 0-1.31.469-2.381 											1.236-3.221-.124-.303-.536-1.523.117-3.176 0 0 1.008-.322 3.301 1.23a11.49 11.49 0 016.006 			0c2.291-1.552 3.297-1.23 3.297-1.23.655 1.653.243 2.873.119 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.805 5.625-5.475 							5.921.43.37.814 1.102.814 2.222 0 1.606-.014 2.901-.014 3.296 0 .321.216.694.825.576A12.003 			12.003 0 0024 12c0-6.63-5.37-12-12-12z"/>
+        					</svg>
+      						</a>
+    					</li>
+
+  				</ul>
+				</section>
+
+		
+			
+				<section>	
+					<h1> Alrahman Elli Verdiyev</h1>
+				</section>
+			</article>
+
+						
+
+
+
+	</main>
+
+	
+</body>
+
+
+
+</html>
