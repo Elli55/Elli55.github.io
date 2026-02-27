@@ -451,6 +451,12 @@ a {
 	
 }
 
+.card_dashboard_content p{
+	
+	font-size: 1.25rem;
+	
+}
+
 .card_dashboard_content span{
 	display: block;
 	
