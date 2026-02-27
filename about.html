@@ -14,7 +14,7 @@
 <body>
 	
 	<header>
-		<article id="head" >
+		<article id="head" class="container_head" >
 			<section class="description-text">
 				<h1>Alrahman Elli Verdiyev</h1>
 			</section>
@@ -35,9 +35,41 @@
 		
 
 		<section class="my_foto container">
-					<img class="foto-for-about" src="Fotos/About/me.jpg">	
+  			<picture>
+  				<source 
+      					srcset="
+        				Fotos/About/me-480.webp 480w,
+        				Fotos/About/me-900.webp 900w,
+					Fotos/About/me-1200.webp 1200w,
+        				Fotos/About/me-1600.webp 1600w"
+      					type="image/webp">
+
+    				<img 
+
+      				src="Fotos/About/me-900.webp"
+
+      				
+				srcset="
+        				Fotos/About/me-480.webp 480w,
+        				Fotos/About/me-900.webp 900w,
+					Fotos/About/me-1200.webp 1200w,
+        				Fotos/About/me-1600.webp 1600w"
+      				
+				sizes="(max-width: 600px) calc(100vw - 8rem),
+					(max-width: 1650px) calc(100vw - 8rem),
+					1522px"
+      
+				alt="Alrahman Elli Verdiyev"
+      
+				class="foto-for-about"
+      	
+				loading="lazy"
+      	
+				width="900"
+      			
+				height="600">
+  			</picture>
 		</section>
-			
 		
 		
 			

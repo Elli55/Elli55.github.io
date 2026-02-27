@@ -12,7 +12,7 @@
 </head>
 <body>
 	<header>
-		<article id="head" >
+		<article id="head" class="container_head">
 			<section class="description-text">
 				<h1>Alrahman Elli Verdiyev</h1>
 			</section>
@@ -20,7 +20,7 @@
 				<ul class="line_ul">
 					<li><a href="index.html">Home</a></li>
 					<li><a href="about.html">About</a></li>	
-					<li><a href="CaseStadies/wiskey_case.html">Case Stadys</a></li>
+					<li><a href="CaseStadies/wiskeyCase.html">Case Stadys</a></li>
 					<li><a href="Projects/EscVol.html">Projects/Programs</a></li>
 					
 				</ul>
@@ -53,40 +53,76 @@
 		<article id="landing_cta" class="container">
 
 			<section class="dashboard">
-    				<a class="card_dashboard" href="Projects/EscVol.html" style="background-image: url('Fotos/Index/lefkadas.png');">
-        
-        			<div class="card_dashboard_content">
-            				<h3>What is now?</h3>
-            				<p>
-                				I am currently volunteering with the organisation Solidarity Tracks on the 
-                				'Sustainable Development Education' project, as part of the European 
-                				Solidarity Corps programme on the island of Lefkada in Greece.
-            				</p>
-        	    			<span class="read-more">Read More</span>
-        			</div>
+  				<a class="card_dashboard" href="Projects/EscVol.html">
+    
+  					<picture class="card_bg">
+      				
+					<source 
+        					srcset="
+          					Fotos/Index/lefkada-600.webp 600w,
+          					Fotos/Index/lefkada-1000.webp 1000w,
+          					Fotos/Index/lefkada-1600.webp 1600w"
+        					type="image/webp">
+      
+      					<img 
+        					src="Fotos/Index/lefkadas-1000.webp"
+        					alt="Lefkada Island"
+        					loading="lazy"
+        					decoding="async">
+    					</picture>
 
-    				</a>
+    					<div class="card_dashboard_content">
+    						<h3>What is now?</h3>
+            				
+						<p>
+                					I am currently volunteering with the organisation Solidarity Tracks on the 
+                					'Sustainable Development Education' project, as part of the European 
+                					Solidarity Corps programme on the island of Lefkada in Greece.
+            					</p>
+        	    			
+						<span class="read-more">Read More</span>
+					</div>
+
+  				</a>
+			</section>
+
+			<section class="dashboard">
+  				<a class="card_dashboard" href="CaseSatadies/WiskeyCase">
+    
+  					<picture class="card_bg">
+      				
+					<source 
+        					srcset="
+          					Fotos/Index/wiskey-600.webp 600w,
+          					Fotos/Index/wiskey-1000.webp 1000w,
+          					Fotos/Index/wiskey-1600.webp 1600w"
+        					type="image/webp">
+      
+      					<img 
+        					src="Fotos/Index/wiskey-1000.webp"
+        					alt="Wiskey Product Analys"
+        					loading="lazy"
+        					decoding="async">
+    					</picture>
+
+    					<div class="card_dashboard_content">
+
+    						<h3>Wiskey Product Portfolio Optimization Case Study</h3>
+					</div>
+
+  				</a>
 			</section>
 	
-			<section class="dashboard">
-    				<a class="card_dashboard" href="CaseStadies/WiskeyCase.html" style="background-image: 										url('Fotos/Index/vviskey_product_cover.png');">
-        
-        				<div class="card_dashboard_content">
-        				<h3>Wiskey Product Portfolio Optimization Case Study</h3>
-        				</div>
-
-    				</a>
-			</section>
+			
 			
 		</article>
-
-
+	
 		
 
-
-
+		<section class="dark">
+		<div class="container_dark">
 		<article id="educationbackground" >
-				
+							
 			<section class="academic-background">
 				<h2 class="titles_dark">Education</h2>
 	
@@ -112,8 +148,11 @@
 			<section>
 				<img  class="illustration" src="Fotos/Index/education.jpg">
 			</section>
+		
+			
 		</article>
-	
+		</div>
+		</section>	
 	
 
 		<article id="last-academic-work" class="container">
