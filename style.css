@@ -96,13 +96,13 @@ nav a{
 	font-family: "Arvo", serif;
 	font-weight: 400;
 	font-style: normal;
-	margin: 5rem 0 0 10rem;
+	margin:3rem 0 0 11rem;
 	font-size: clamp(0.875rem, 1.67vw, 1.25rem);
-	line-height: 0.9;
+	line-height: 1.5;
 
 	letter-spacing: 0.06em; 
 	text-transform: lowercase;
-
+	max-width: 55%;
 	color: #3A783C; 
 }
 }
@@ -387,8 +387,6 @@ a {
 
 
 /* Dashboards */
-
-
 
 
 .card_dashboard {
