@@ -286,9 +286,12 @@ a {
 }
 
 .code-text{
+	
 	font-family: Consolas, Monaco, 'Courier New', monospace;
 	font-size: 1.3rem;
 	padding: 2rem 0 2rem 5rem;
+	
+	align-items: center;
 
 	
 }
