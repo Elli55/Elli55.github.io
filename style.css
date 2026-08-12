@@ -19,14 +19,22 @@ img {
 	grid-template-columns: 1fr 3fr;
 	background-color:#fff;
 	color:#3A783C; 
+	margin-top: 0.6rem;
 	
 	
+}
+
+nav {
+
+	margin-top: 0.8rem;
+
 }
 
 nav a{
 	text-decoration: none;
 	color: #3A783C;
 	font-size: 1.5rem;
+	
 	
 
 }
@@ -237,7 +245,7 @@ a {
 	letter-spacing: 0;
 
 	color: #FFD557;
-	margin: 0 0 2rem 0;
+	margin: 2rem 0 2rem 0;
 }
 
 
@@ -261,17 +269,40 @@ a {
 	letter-spacing: 0;
 
 	color: #FFD557;
-	margin: 3rem 0 1rem 0;
+	margin: 3rem 0 0 0;
 }
+
+.subtitle_dark_2 {
+	font-family:  'Montserrat', sans-serif;
+	font-weight: 300;
+	font-size: 1.2rem;      
+	line-height: 2.25rem;  
+	letter-spacing: 0;
+
+	color: #FFD557;
+	margin: 2rem 0 1rem 0;
+}
+
+.subtitle_dark_3 {
+	font-family:  'Montserrat', sans-serif;
+	font-weight: 600;
+	font-size: 1.2rem;      
+	line-height: 2.25rem;  
+	letter-spacing: 0;
+
+	color: #FFFFFF;
+	margin: 1rem 0 0 0;
+}
+
 
 
 .description-text {
 	font-family:  'Montserrat', sans-serif;
-	font-weight: 400;
+	font-weight: 500;
 	font-size: 1.12rem;     
 	line-height: 1.875rem;   
 	letter-spacing: 0;
-	margin: 1.5rem 0 0 0;
+	margin: 1rem 0 1rem 0;
 }
 
 .description_dark {
@@ -281,7 +312,7 @@ a {
 	line-height: 1.875rem;   
 	letter-spacing: 0;
 	color: #fff;
-	margin: 1.5rem 0 0 0;
+	margin: 1rem 0 0 0;
 
 }
 
@@ -336,9 +367,9 @@ a {
 }
 
 .ul-with-title{
-	padding:2rem 20rem 1.5rem 5rem;
-	font-size:1.2rem;
-	margin: 0.5rem 0;
+	
+	font-size:1rem;
+	margin: 1.5rem 1rem 1rem;
 	font-family: Verdana, sans-serif; 
 	line-height:2rem;
 }
@@ -346,8 +377,8 @@ a {
 
 .ul-li-title {
 	font-weight: bold;
-	font-size: 1.4rem;
-	margin: 0.8rem 0;
+	font-size: 1.2rem;
+	margin: 0.8rem 0 0 0;
 	font-family: Verdana, sans-serif; 
 	line-height: 2rem;
 }
@@ -682,7 +713,7 @@ a {
 	font-weight: 700;
 	line-height: 1; 
 	letter-spacing: 0;
-	margin: 0 0 3rem 0;
+	margin: 0 0 1rem 0;
 	color: #fff;
 	text-decoration: none;
 	transition: color 0.2s ease;
@@ -693,10 +724,12 @@ a {
 
 }
 
-.head-of-choises{
+.head_of_choises{
 	font-size: 1.7rem;
 	color: 	#FFFAE5;
-	margin: 2rem 1.4rem 0 0; 
+	margin: 0 0 0 0; 
+	padding: 0 0 1rem 0;
+	
 }
 
 
@@ -710,7 +743,10 @@ a {
 
 
 .titels_of_content{
-	margin: 2rem 0 3rem 0;
+	margin: 0.5rem 0 3rem 0;
+	padding: 1rem 0 0 0;
+	border-top: dashed #FFFAE5;
+	border-bottom: dashed #FFFAE5;
 }
 
 
@@ -721,6 +757,8 @@ a {
 .foto-center{
 	width: 100%;
 	max-width: 1800px;
+	max-height: 80vh;
+	object-fit: contain;
 	
 }
 

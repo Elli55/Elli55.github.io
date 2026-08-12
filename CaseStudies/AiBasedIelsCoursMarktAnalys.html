@@ -49,11 +49,11 @@
 						
 						<h5 class="subtitle_dark">Section 1. Problem Statement</h5>
 
-						<p class="description_dark">Client: Independent course creator (anonymized)</p> 
+						<p class="subtitle_dark_3">Client: <span class="description_dark"> Independent course creator 								(anonymized)</span> </p>
 
-						<p class="description_dark">Research conducted: March 2026</p>
+						<p class="subtitle_dark_3">Research conducted: <span class="description_dark">March 2026</span>								</p>
 
-						<p class="description_dark">Analys: Product & Business Analys</p>
+						<p class="subtitle_dark_3">Analys: <span class="description_dark">Product & Business 									Analys</span></p>
 
 						<p class="description_dark">The client needed to validate one business question before investing 							in course production: Is there real, monetizable demand for an AI-assisted IELTS 								preparation course  and what does that audience actually need? The decision to proceed 								with user testing, advertising, or full production depended entirely on the answer. The 							course was to be positioned as a self-development and productivity product, not a 								language school.
 						</p>
@@ -67,15 +67,14 @@
 							<li>Which platform and positioning give the best entry point?</li>
 						</ul></div>
 
-						<p class="description_dark">Technical Overview</p>
+						<p class="subtitle_dark_2">Technical Overview</p>
 
 						<p class="description_dark">
 							This research was built on a custom Python pipeline. Data collection, cleaning and AI 								analysis were each handled by dedicated scripts no third-party research tools or manual 							aggregation.
 						</p>
 
 						<p class="description_dark">
-							Full codebase: </p>
-							<a href="https://github.com/Elli55/ielts-with-ai-market-research" target="_blank" 								class="chois-template">github.com/Elli55/ielts-with-ai-market-research</a>
+							Full codebase: <a href="https://github.com/Elli55/ielts-with-ai-market-research" 								target="_blank" >github.com/Elli55/ielts-with-ai-market-research</a>
 						
 
 						<div class="ul-with-title">
@@ -103,7 +102,7 @@
 					
 						<h5 class="subtitle_dark">Section 2. Research Strategy</h5>
 
-						<p class="description_dark">Four sources. Each answered a different business question.</p>
+						<p class="subtitle_dark_3">Four sources. Each answered a different business question.</p>
 
 						<p class="description_dark">Google Trends mapped search demand over 12 months and identified when 							AI entered the IELTS space at scale  a critical timing signal for the client's launch 								decision. Related queries revealed adjacent audience interests, informing both 									positioning and content architecture.
 						</p>
@@ -121,7 +120,7 @@
 
 						<h5 class="subtitle_dark">Section 3. Search Demand- What does the market say?</h5>
 
-						<p class="subtitle_dark">Finding 1. Related searches  What does the audience want?</p>
+						<p class="subtitle_dark_2">Finding 1. Related searches  What does the audience want?</p>
 
 						<figure class="figur-for-fotos-center">
 
@@ -171,7 +170,7 @@
 						<p class="description_dark"> Searches like "AI for IELTS", "IELTS writing with AI", and "IELTS 								reading with AI" start to grow in the second half of 2025. The trend is not stable yet, 							but the direction is clear. YouTube videos about this topic started at the same time. 								This means content creators already start to build demand, but the market is not full 								yet.
 						</p>
 
-						<p class="subtitle_dark">Finding 2. YouTube Competitor Landscape</p>
+						<p class="subtitle_dark_2">Finding 2. YouTube Competitor Landscape</p>
 
 						<figure class="figur-for-fotos-center">
 
@@ -208,12 +207,12 @@
 						<p class="description_dark">In the course naming, description, and in the title of every module, 							this model should be considered: say clearly what you teach, and give what you promise. 							Fastrack’s success is not a brand effect, but the result of a content design decision. 								Each title is a mini-promise by itself. This can also be applied to course architecture  							the name of every module should answer the question “what will you learn”, not just show 							the topic.
 						</p>
 
-						<p class="subtitle_dark">Finding 3.  AI Analysis of YouTube Comments</p>
+						<p class="subtitle_dark_2">Finding 3.  AI Analysis of YouTube Comments</p>
 
-						<p class="description_dark">Technical note: The data analyzed in this section was obtained via 								YouTube Data API v3 from the comment sections of the videos whose statistics were shown 							in the previous section.
+						<p class="description_dark"> <span class="subtitle_dark_3">Technical note: </span> The data 								analyzed in this section was obtained via YouTube Data API v3 from the comment sections 							of the videos whose statistics were shown in the previous section.
 						</p>
 
-						<p class="description_dark">More than 2,500 YouTube comments collected were not directly usable 							for analysis. In the first stage, the data was cleaned: entries shorter than 10 								characters, comments consisting only of emojis, and meaningless text fragments were 								removed. The cleaned dataset was processed through the Gemini-3-flash-preview API in 								batches of 200. Each batch was analyzed independently, and then all results were 								synthesized into a single final report in the second stage. The goal was simple: with 								this volume of user stories, it is not practically possible for a human to read each 								comment one by one and convert them into use cases. AI standardized this process — every 							comment received the same analytical weight, neither the first 200 comments nor the last 							200 comments had any advantage.
+						<p class="description_dark">More than 2,500 YouTube comments collected were not directly usable 							for analysis. In the first stage, the data was cleaned, entries shorter than 10 								characters, comments consisting only of emojis, and meaningless text fragments were 								removed. The cleaned dataset was processed through the Gemini-3-flash-preview API in 								batches of 200. Each batch was analyzed independently, and then all results were 								synthesized into a single final report in the second stage. The goal was simple, with 								this volume of user stories, it is not practically possible for a human to read each 								comment one by one and convert them into use cases. AI standardized this process every 								comment received the same analytical weight, neither the first 200 comments nor the last 							200 comments had any advantage.
 						</p>
 		
 						<p class="description_dark">The results are below:</p>
@@ -272,15 +271,15 @@
 						<p class="code-text">Primary Sentiment: Highly Positive but Anxious. The community is fiercely 								loyal and grateful to creators (often using mantras like "I am a star"), viewing them as 							"life-savers." Secondary Sentiment: Relieved. There is a "collective sigh of relief" when 							users discover that their low AI scores are common and not necessarily a reflection of 								their true ability. Undercurrent: Skeptical & Frustrated. A growing minority is 								disillusioned with the "IELTS business model" and suspicious of staged mock tests or 								"fake" grading videos.
 						</p>
 
-						<p class="subtitle_dark">Finding 4.  AI Analysis of Udemy Comments</p>
+						<p class="subtitle_dark_2">Finding 4.  AI Analysis of Udemy Comments</p>
 
-						<p class="descriptrion_dark">Technical note: The data in this section was obtained from existing 							IELTS preparation courses on Udemy. The method was intentionally bipolar: comments from 							the1000 highest-rated students + comments from the 1000 lowest-rated students were 								selected. The goal was not to create a picture where “everything is good” or “everything 							is bad”, but to see at the same time what works and what does not work in the market. The 							comments were analyzed using Gemini-3-flash-preview API and Claude Sonnet 4.6 Extended.
+						<p class="description_dark"><span class="subtitle_dark_3">Technical note: </span>The data in 							this section was obtained from existing IELTS preparation courses on Udemy. The method 								was intentionally bipolar: comments from the1000 highest-rated students + comments from 							the 1000 lowest-rated students were selected. The goal was not to create a picture where 							“everything is good” or “everything is bad”, but to see at the same time what works and 							what does not work in the market. The comments were analyzed using Gemini-3-flash-preview 							API and Claude Sonnet 4.6 Extended.
 						</p>
 	
 						<p class="description_dark">Unlike the YouTube audience, the people who write Udemy comments are 							students who paid money. This difference changes the quality of the data expectations are 							higher, disappointment is more concrete and behind positive reviews there is a real 								result.
 						</p>
 
-						<p class="code-text">Business Analysis Report: IELTS Preparation Market on Udemy — 2000 User 								Insights </p>
+						<p class="code-text">Business Analysis Report: IELTS Preparation Market on Udemy 2000 User 								Insights </p>
 	
 						<p class="code-text">1. Executive Summary</p>
 
@@ -318,53 +317,60 @@
 
 
 
-						<h5 class="subtitle_dark">Section 2.  Decision Framework ,  7 Recommendations</h5>
+						<h5 class="subtitle_dark">Section 3.  Decision Framework ,  7 Recommendations</h5>
 
-						<p class="description_dark">Recommendation 1 - Which platform?</p>
+						<p class="subtitle_dark_2">Recommendation 1 - Which platform?</p>
 
-						<p class="description_dark">Decision: Udemy as main, YouTube as tunnel.</p>
+						<p class="description_dark"><span class="subtitle_dark_3">Decision: </span>Udemy as main, YouTube 							as tunnel.</p>
+
 						<p class="description_dark">Related queries data shows that the audience is actively searching 								for a course. However, the Fastrack example proves that YouTube can be a strong tunnel 								leading to Udemy. Being only on Udemy limits visibility.
 						</p>
 
-						<p class="description_dark">Recommendation 2 - How to position?</p>
+						<p class="subtitle_dark_2">Recommendation 2 - How to position?</p>
 
-						<p class="description_dark">Decision: "AI examiner logic"  not ChatGPT, but methodology.</p>
+						<p class="description_dark"><span class="subtitle_dark_3">Decision: </span>"AI examiner logic"  							not ChatGPT, but methodology.</p>
+
 						<p class="description_dark">Both YouTube and Udemy data showed the same gap: existing competition 							is built completely around ChatGPT, and the audience does not fully trust it. The course 							should not be positioned as "IELTS with AI", but as "structured AI methodology working 								with real examiner logic".
 						</p>
 
 						
-						<p class="description_dark">Recommendation 3 -  How to use the keyword "Free"?</p>
+						<p class="subtitle_dark_2">Recommendation 3 -  How to use the keyword "Free"?</p>
 
-						<p class="description_dark">Decision: Paid course, free side product.</p>
+						<p class="description_dark"><span class="subtitle_dark_3">Decision: </span>Paid course, free side 							product.</p>
+
 						<p class="description_dark">Both Google Trends and YouTube title data showed that the keyword 								"free" is a dominant search signal. If a prompt pack, template, or checklist is offered 							for free and highlighted in the title, both SEO and conversion become stronger.
 						</p>
 
 
-						<p class="description_dark">Recommendation 4 - When to launch?</p>
+						<p class="subtitle_dark_2">Recommendation 4 - When to launch?</p>
 
-						<p class="description_dark">Decision: March–April, be ready for the peak.</p>
-						<p class="description_dark">Traditional search data shows that demand reaches its peak in May–								August. Course promotion should start in March–April so that it is ready when demand 								increases. The message "X months before the exam" gives the highest response in this 								period.
+						<p class="description_dark"><span class="subtitle_dark_3">Decision: </span>March – April, be 								ready for the peak.</p>
+
+						<p class="description_dark">Traditional search data shows that demand reaches its peak in May –								 August. Course promotion should start in March–April so that it is ready when demand 								increases. The message "X months before the exam" gives the highest response in this 								period.
 						</p>
 
 			
-						<p class="description_dark">Recommendation 5 - What should the content format be?</p>
+						<p class="subtitle_dark_2">Recommendation 5 - What should the content format be?</p>
 
-						<p class="description_dark">Decision: Active practice system  not a content library.</p>
+						<p class="description_dark"><span class="subtitle_dark_3">Decision: </span>Active practice system  							not a content library.</p>
+
 						<p class="description_dark">Udemy data showed that the market expects a shift from the "watch" 								format to the "practice and get result" format. Send essay, get score this format is a 								differentiation point that almost none of the existing competitors can provide.
 						</p>
 
 
-						<p class="description_dark">Recommendation 6 -  What should the naming strategy be?</p>
+						<p class="subtitle_dark_2">Recommendation 6 -  What should the naming strategy be?</p>
 
-						<p class="description_dark">Decision: Honest, direct, promise-based titles.</p>
+						<p class="description_dark"><span class="subtitle_dark_3">Decision: </span>Honest, direct, 								promise-based titles.</p>
+
 						<p class="description_dark">The Fastrack IELTS example showed that in a market full of clickbait 							titles, honest and clear titles create higher comment activity. The course name and every 							module title must answer the question "what will you learn".
 						</p>
 
 		
-						<p class="description_dark">Recommendation 7 - Which different and interesting target audience 								segment?
+						<p class="subtitle_dark_2">Recommendation 7 - Which different and interesting target audience 								segment?
 						</p>
 			
-						<p class="description_dark">Decision: Last-minute learners are the first target.</p>
+						<p class="description_dark"><span class="subtitle_dark_3">Decision: </span>Last-minute learners 							are the first target.</p>
+
 						<p class="description_dark">A significant part of YouTube comments comes from users who start 								preparation 1–14 days before the exam. This segment is both the largest and the least 								served group. A "7-day fast preparation" module is a direct entry product for this 								audience.
 						</p>
 
@@ -374,7 +380,7 @@
 
 						
 					
-						
+							
 
 					</div>
 
