@@ -8,20 +8,16 @@ class NoBSHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
         path = self.translate_path(self.path)
         
-        # Əgər fayl birbaşa mövcuddursa — ver
         if os.path.isfile(path):
             return super().do_GET()
         
-        # Əgər qovluqdursa — index.html axtarır
         if os.path.isdir(path):
             return super().do_GET()
         
-        # .html əlavə edib yoxla
         if os.path.isfile(path + ".html"):
             self.path = self.path.rstrip("/") + ".html"
             return super().do_GET()
         
-        # Tapılmadı
         return super().do_GET()
 
     def log_message(self, format, *args):
