@@ -24,6 +24,5 @@ class NoBSHandler(http.server.SimpleHTTPRequestHandler):
         print(f"{self.address_string()} → {args[0]} {args[1]}")
 
 with socketserver.TCPServer(("", PORT), NoBSHandler) as httpd:
-    print(f"Server işləyir: http://localhost:{PORT}")
-    print("Dayandırmaq üçün Ctrl+C")
+    print(f"Server: http://localhost:{PORT}")
     httpd.serve_forever()
